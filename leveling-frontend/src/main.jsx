@@ -1,10 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Confidentialite from "./confidentialite.jsx";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Confidentialite from './confidentialite.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Confidentialite />
-  </StrictMode>,
-)
+  </StrictMode>
+);
