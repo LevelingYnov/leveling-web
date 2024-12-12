@@ -11,16 +11,6 @@ main {
   margin-top: 80px; 
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f4f4f8;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
 .fonctionnalites-container {
   display: flex;
   flex-wrap: wrap;

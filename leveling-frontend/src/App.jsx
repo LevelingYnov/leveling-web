@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import MentionLegalPage from './mentionLegales';
 
 function App() {
   const features = [
@@ -32,18 +34,24 @@ function App() {
   ];
 
   return (
-    <>
-      <Header />
-      <div className="fonctionnalites-container">
-        {features.map((feature, index) => (
-          <div key="index" className="feature-card">
-            <h2>{feature.title}</h2>
-            <p>{feature.description}</p>
-          </div>
-        ))}
+    <Router>
+      <div>
+        <Header />
+        <div className="fonctionnalites-container">
+          {features.map((feature, index) => (
+            <div key={index} className="feature-card">
+              <h2>{feature.title}</h2>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+        <Footer/>
+        
+        <Routes>
+          <Route path="/mentions-legales" element={<MentionLegalPage/>} />
+        </Routes>
       </div>
-      <Footer />
-    </>
+    </Router>
   );
 }
 

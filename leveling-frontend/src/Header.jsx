@@ -10,12 +10,13 @@ function Header() {
       <nav>
         <ul className="navbar">
           <li>Home</li>
+          <li>Classement</li>
           <li href="">RGPD</li>
           <li>cookie</li>
         </ul>
       </nav>
-    </header>
-  );
+    </header>    
+  )
 }
 
-export default Header;
+export default Header
