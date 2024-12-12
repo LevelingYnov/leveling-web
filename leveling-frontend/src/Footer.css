@@ -1,0 +1,19 @@
+footer {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+  
+footer p {
+    margin: 10px 0;
+    cursor: pointer;
+}
+  
+footer p:hover {
+    color: #666;
+}
