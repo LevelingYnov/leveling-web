@@ -1,8 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import  Link from "react-router-dom";
 import Header from './Header';
 import Footer from './Footer';
-import MentionLegalPage from './mentionLegales';
 
 function HomePage() {
   const features = [
