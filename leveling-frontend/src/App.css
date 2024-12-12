@@ -1,15 +1,16 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-image: url('./assets/levelling.webp');
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat; 
-  min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
+
 main {
-  margin-top: 80px; 
+    margin-top: 80px;
 }
+
 
 .fonctionnalites-container {
   display: flex;
