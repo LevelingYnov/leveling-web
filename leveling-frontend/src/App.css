@@ -67,7 +67,7 @@ main {
 }
 
 .download-title {
-  color: #fff;
+  color: black;
   font-size: 90px;
   font-style: normal;
   font-weight: 900;
@@ -76,7 +76,7 @@ main {
 
 .download-description {
   color: #fff;
-  font-family: 'Mark Pro';
+  font-family: 'Mark Pro', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -90,11 +90,6 @@ main {
 }
 
 .ios {
-  /*
-    display: flex;
-    align-items: center;
-    border: #1a1a1a 1px solid;*/
-
   display: flex;
   padding: 8px 16px;
   justify-content: center;
@@ -106,10 +101,6 @@ main {
 }
 
 .android {
-  /*
-    display: flex;
-    align-items: center;
-    border: #1a1a1a 1px solid;*/
   display: flex;
   padding: 8px 16px;
   align-items: center;
@@ -148,6 +139,7 @@ main {
   display: flex;
   justify-self: center;
 }
+
 .feedback {
   max-width: 350px;
   justify-self: center;
