@@ -9,44 +9,6 @@ import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 
 function App() {
-    const features = [
-        {
-            id: 1,
-            title: 'Missions Sportives Quotidiennes',
-            description:
-                "Les utilisateurs reçoivent chaque jour entre 1 et 5 missions sportives (les utilisateurs paramètrent les horaires dans lesquels ils sont disponibles), avec des défis à compléter à des horaires aléatoires. Ces missions offrent un sentiment de variété et d'inattendu, incitant les utilisateurs à rester alertes et motivés.",
-        },
-        {
-            id: 2,
-            title: 'Système de Niveaux et de Points',
-            description:
-                'En réussissant des missions, les utilisateurs accumulent des points, montent de niveau, et gagnent en statut. Cette progression leur permet de se fixer des objectifs clairs et de ressentir une satisfaction liée aux accomplissements.',
-        },
-        {
-            id: 3,
-            title: 'Défis entre Utilisateurs',
-            description:
-                "Les utilisateurs peuvent s'affronter lors de défis d'exercices. Ce mode compétitif donne une dimension sociale, renforçant la motivation via la rivalité amicale.",
-        },
-        {
-            id: 4,
-            title: 'Abonnement Premium',
-            description:
-                "L'abonnement débloque des avantages comme des exercices personnalisés qui permettent de progresser plus rapidement physiquement. Les abonnés bénéficient aussi d'objets de personnalisation et d'une immunité pour leur personnage, renforçant leur investissement dans le jeu.",
-        },
-        {
-            id: 5,
-            title: 'Paliers et Difficulté Croissante',
-            description:
-                'Plus les utilisateurs réussissent des missions, plus la difficulté des exercices augmente. Cela maintient le défi intéressant et adapté au niveau de chaque utilisateur, assurant une progression constante.',
-        },
-        {
-            id: 6,
-            title: 'Sanctions et Risques',
-            description:
-                "En cas d'échec aux missions, des pénalités sont infligées (points en moins et missions de pénalités). Si un utilisateur perd tous ses points, son personnage est détruit et son compte est supprimé, ce qui ajoute une pression et une incitation fortes à maintenir l'engagement.",
-        },
-    ];
 
     const logoWidth = 50;
     const logoHeight = 50;
@@ -138,6 +100,14 @@ function App() {
         },
     ];
 
+    const dataRank = [
+        {rank: 1, name: "Frédéric", score: 156, avatar: "avatar1.jpg"},
+        {rank: 2, name: "Benoit Saint Denis", score: 148, avatar: "avatar2.jpg"},
+        {rank: 3, name: "Twilight", score: 147, avatar: "avatar3.jpg"},
+        {rank: 4, name: "Grandingo", score: 139, avatar: "avatar4.jpg"},
+        {rank: 5, name: "Chef", score: 137, avatar: "avatar5.jpg"},
+        {rank: 6, name: "Brass", score: 0, avatar: "avatar6.jpg"},
+    ];
 
     return (
         <Router>
@@ -281,7 +251,7 @@ function App() {
                     <div className={'rank-container'}>
                         <div className={'text'}>
                             <h2 className={'feedback-title'}>Titre h2</h2>
-                            <p><p>
+                            <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                                 sodales maximus risus, quis congue libero convallis vel. Sed ut
                                 lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
@@ -296,35 +266,29 @@ function App() {
                                 sit amet urna augue. Nulla nunc quam, tempor id turpis eu,
                                 vehicula sodales ante. Maecenas ultricies ullamcorper luctus.
                                 Suspendisse sit amet semper justo.*
-                            </p></p>
+                            </p>
                         </div>
-                        <div className={'rank'}>
-                            <div className={'line'}>
-                                <div className={'left'}>
-                                    <p>#1</p>
-                                    <img src={iosLogo} width={50}/>
-                                    <p>name</p>
-                                </div>
-                                <div className={'right'}>
-                                    <p>rank</p>
-                                </div>
 
-
+                        <div className="leaderboard-container">
+                            <div className="leaderboard">
+                                {dataRank.map((entry, index) => (
+                                    <div className="leaderboard-item" key={index}>
+                                        <div className="rank">#{entry.rank}</div>
+                                        <img
+                                            src={iosLogo}
+                                            width='50'
+                                            alt={entry.name}
+                                            className="avatar"
+                                        />
+                                        <div className="name">{entry.name}</div>
+                                        <div className="score">{entry.score}</div>
+                                    </div>
+                                ))}
                             </div>
-                            <div className={'line'}></div>
-                            <div className={'line'}></div>
                         </div>
                     </div>
                 </div>
 
-                <div className="fonctionnalites-container">
-                    {features.map((feature) => (
-                        <div key={feature.id} className="feature-card">
-                            <h2>{feature.title}</h2>
-                            <p>{feature.description}</p>
-                        </div>
-                    ))}
-                </div>
                 <Footer/>
 
                 <Routes>
