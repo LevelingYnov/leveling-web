@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import MentionLegalPage from './mentionLegales';
 import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
+
 import iphoneImg from './assets/iphoneDl.png';
 
 function App() {
@@ -136,6 +137,7 @@ function App() {
             stars: 3,
         },
     ];
+
 
     return (
         <Router>
@@ -314,7 +316,6 @@ function App() {
                         </div>
                     </div>
                 </div>
-
 
                 <div className="fonctionnalites-container">
                     {features.map((feature) => (
