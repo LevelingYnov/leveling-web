@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MentionLegalPage from './mentionLegales';
 import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
-import backgroundImage from './assets/backgroung_desk.jpg';
+import back1 from './assets/background1.png';
+
 
 function App() {
   const features = [
@@ -139,10 +140,11 @@ function App() {
 
   return (
     <Router>
-    <div className="app-container"
-        style={{ '--background-image': `url(${backgroundImage})` }}
-    >        
-          <Header />
+
+      <div>
+        <Header />
+        <img src={back1} alt="backgroun" />
+
         <div className="download-application-container feature-card">
           <h1 className={'download-title'}>Titre H1</h1>
           <p className={'download-descriptions'}>
