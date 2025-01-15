@@ -152,3 +152,14 @@ main {
   max-width: 350px;
   justify-self: center;
 }
+.app-container {
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Garde l'image fixe pendant le défilement */
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
