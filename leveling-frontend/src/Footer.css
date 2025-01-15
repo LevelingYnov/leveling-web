@@ -1,19 +1,98 @@
 footer {
-  background-color: #f4f4f4;
-  color: #333;
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  display: flex;
   width: 100%;
+  padding: 24px 60px;  /* Réduit de 40px à 24px */
+  flex-direction: column;
+  gap: 16px;  /* Réduit de 24px à 16px */
+  background: var(--Black-blue, #05091C);
+  font-family: "Mark Pro";
+  text-align: center;
+  color: var(--White, #F0F5FC);
+  font-size: 14px;  /* Réduit de 16px à 14px */
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-footer p {
-  margin: 10px 0;
-  cursor: pointer;
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;  /* Réduit de 1200px à 1000px */
+  margin: 0 auto;
+  gap: 16px;  /* Réduit de 20px à 16px */
+  flex-wrap: wrap;
 }
 
-footer p:hover {
-  color: #666;
+.logo-section {
+  display: flex;
+  gap: 16px;  /* Réduit de 24px à 16px */
+}
+
+.logo-container .logo {
+  height: 32px;  /* Réduit de 40px à 32px */
+  width: auto;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;  
+  align-items: center;
+}
+
+.social-icons img {
+  width: 25.066px;
+  height: 24px;
+}
+
+.link-line {
+  display: flex;
+  gap: 16px;  /* Réduit de 24px à 16px */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link-line a {
+  color: var(--White, #F0F5FC);
+  text-decoration: none;
+  font-size: 16px; 
+  font-family: "Mark Pro";
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.link-line a:hover {
+  opacity: 0.8;
+}
+
+.copyright {
+  color: var(--White, #F0F5FC);
+  font-family: "Mark Pro";
+  font-size: 12px;  /* Réduit de 16px à 12px */
+  font-weight: 500;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .footer-top {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 16px;  /* Réduit de 20px à 16px */
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .link-line {
+    flex-direction: column;
+  }
 }
