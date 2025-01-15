@@ -60,14 +60,29 @@ main {
 
 .download-application-container {
   display: flex;
-  width: 430px;
   flex-direction: column;
   align-items: flex-start;
   gap: 47px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(5, 9, 28, 0.5) 100%
+    ),
+    rgba(6, 11, 67, 0.5);
+  backdrop-filter: blur(7.5px);
+
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: calc(50% - 20px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid #e1e1e8;
 }
 
 .download-title {
-  color: black;
+  color: white;
   font-size: 90px;
   font-style: normal;
   font-weight: 900;
@@ -75,7 +90,7 @@ main {
 }
 
 .download-description {
-  color: #fff;
+  color: #fff !important;
   font-family: 'Mark Pro', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -135,12 +150,42 @@ main {
   justify-content: center;
 }
 
-.feedback-header {
+.feedback-title {
   display: flex;
-  justify-self: center;
+  justify-content: center;
+  color: white;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  background: #05091c;
+  margin: 0;
+  padding-top: 15px;
 }
 
 .feedback {
   max-width: 350px;
   justify-self: center;
+}
+
+#backgroundInsert1 {
+  background: url('./assets/background1.png');
+  background-size: cover;
+}
+
+#backgroundInsert2 {
+  background: #05091c;
+}
+
+#iphoneIntegration {
+  width: 20%;
+}
+
+.iphone-container {
+  display: flex;
+  justify-content: center;
+}
+
+#text {
+  width: 30%;
 }
