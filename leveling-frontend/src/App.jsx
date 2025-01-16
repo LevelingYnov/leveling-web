@@ -9,45 +9,7 @@ import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 
 function App() {
-    const features = [
-        {
-            id: 1,
-            title: 'Missions Sportives Quotidiennes',
-            description:
-                "Les utilisateurs reçoivent chaque jour entre 1 et 5 missions sportives (les utilisateurs paramètrent les horaires dans lesquels ils sont disponibles), avec des défis à compléter à des horaires aléatoires. Ces missions offrent un sentiment de variété et d'inattendu, incitant les utilisateurs à rester alertes et motivés.",
-        },
-        {
-            id: 2,
-            title: 'Système de Niveaux et de Points',
-            description:
-                'En réussissant des missions, les utilisateurs accumulent des points, montent de niveau, et gagnent en statut. Cette progression leur permet de se fixer des objectifs clairs et de ressentir une satisfaction liée aux accomplissements.',
-        },
-        {
-            id: 3,
-            title: 'Défis entre Utilisateurs',
-            description:
-                "Les utilisateurs peuvent s'affronter lors de défis d'exercices. Ce mode compétitif donne une dimension sociale, renforçant la motivation via la rivalité amicale.",
-        },
-        {
-            id: 4,
-            title: 'Abonnement Premium',
-            description:
-                "L'abonnement débloque des avantages comme des exercices personnalisés qui permettent de progresser plus rapidement physiquement. Les abonnés bénéficient aussi d'objets de personnalisation et d'une immunité pour leur personnage, renforçant leur investissement dans le jeu.",
-        },
-        {
-            id: 5,
-            title: 'Paliers et Difficulté Croissante',
-            description:
-                'Plus les utilisateurs réussissent des missions, plus la difficulté des exercices augmente. Cela maintient le défi intéressant et adapté au niveau de chaque utilisateur, assurant une progression constante.',
-        },
-        {
-            id: 6,
-            title: 'Sanctions et Risques',
-            description:
-                "En cas d'échec aux missions, des pénalités sont infligées (points en moins et missions de pénalités). Si un utilisateur perd tous ses points, son personnage est détruit et son compte est supprimé, ce qui ajoute une pression et une incitation fortes à maintenir l'engagement.",
-        },
-    ];
-
+    
     const logoWidth = 50;
     const logoHeight = 50;
 
@@ -317,14 +279,6 @@ function App() {
                     </div>
                 </div>
 
-                <div className="fonctionnalites-container">
-                    {features.map((feature) => (
-                        <div key={feature.id} className="feature-card">
-                            <h2>{feature.title}</h2>
-                            <p>{feature.description}</p>
-                        </div>
-                    ))}
-                </div>
                 <Footer/>
 
                 <Routes>

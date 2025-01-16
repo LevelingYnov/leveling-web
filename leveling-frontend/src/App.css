@@ -13,51 +13,6 @@ main {
     margin-top: 80px;
 }
 
-.fonctionnalites-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    width: calc(50% - 20px);
-    transition: transform 0.3s ease,
-    box-shadow 0.3s ease;
-    border: 1px solid #e1e1e8;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.feature-card h2 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.3em;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-}
-
-.feature-card p {
-    color: #34495e;
-    font-weight: 300;
-}
-
-@media (max-width: 768px) {
-    .feature-card {
-        width: 100%;
-    }
-}
-
 .download-application-container {
     display: flex;
     flex-direction: column;
