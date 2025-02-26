@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from './assets/logo.svg';
 
@@ -7,7 +8,6 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Appliquer l'effet après un léger défilement
       const isScrolled = window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
@@ -28,9 +28,9 @@ function Header() {
       </div>
       <nav>
         <ul className="navbar">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link to="/" className="nav-link"> <strong>Home</strong> </Link></li>
+          <li><Link to="/about" className="nav-link"> <strong>About </strong></Link></li>
+          <li><Link to="/contact" className="nav-link"><strong>Contact</strong></Link></li>
           <a href="#" className="download-button">
             <span className="download-button-text">Télécharger l'application</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="256" height="38" viewBox="0 0 256 38" fill="none">

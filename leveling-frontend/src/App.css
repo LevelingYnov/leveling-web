@@ -215,3 +215,11 @@ main {
     font-size: 1.2rem;
     color: #62dafb;
 }
+
+.footer-spacer {
+  height: 150px; /* Ajustez cette valeur selon la hauteur de votre footer */
+  width: 100%;
+  display: block;
+  content: "";
+  clear: both;
+}
