@@ -161,19 +161,39 @@ Vertical
     --h: tan(atan2(var(--h_raw), 1px));
 }
 
+/*
+Horizontal ok
+.feedback-list {
+    display: flex;
+    flex-wrap: nowrap; !* Plus explicite - assure que les items ne wrap pas *!
+    overflow-x: auto; !* Gardez pour le défilement horizontal *! !* Pour enlever la barre, mettre en hidden*!
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px; !* Peut-être moins pertinent avec le scroll horizontal *!
+    !*max-width: calc(2 * (268px + 20px) + 20px);*!
+    max-width: calc(var(--w_raw) - 17px);
+
+.feedback-list::-webkit-scrollbar {  Style optionnel pour la scrollbar (navigateurs Webkit)
+height: 8px;  Hauteur de la scrollbar
+}
+
+}*/
+
 .feedback-list {
     display: flex;
     flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
-    overflow-x: auto; /* Gardez pour le défilement horizontal */ /* Pour enlever la barre, mettre en hidden*/
+    overflow-x: auto; /* Gardez pour le défilement horizontal */
     scroll-snap-type: x mandatory;
     gap: 20px;
     padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
     /*max-width: calc(2 * (268px + 20px) + 20px);*/
     max-width: calc(var(--w_raw) - 17px);
+
 }
 
 .feedback-list::-webkit-scrollbar { /* Style optionnel pour la scrollbar (navigateurs Webkit) */
-    height: 8px; /* Hauteur de la scrollbar */
+    /*display: none;*/ /* Cache complètement la scrollbar pour Webkit */
+    height: 4px;
 }
 
 .feedback-list::-webkit-scrollbar-thumb { /* Style optionnel pour le "thumb" de la scrollbar (la partie que l'on déplace) */
@@ -182,7 +202,7 @@ Vertical
 }
 
 .feedback-list::-webkit-scrollbar-track { /* Style optionnel pour le "track" de la scrollbar (la partie fixe) */
-    background-color: #f0f0f0; /* Couleur du "track" */
+    background-color: #05091c; /* Couleur du "track" */
     border-radius: 4px; /* Bords arrondis */
 }
 
@@ -193,6 +213,7 @@ Vertical
     border: 1px solid #ddd; /* Exemple de bordure pour visualiser les cartes */
     padding: 15px; /* Espacement intérieur pour le contenu de la carte */
     box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur */
+    border-radius: 8px;
 }
 
 #backgroundInsert2 {
@@ -292,11 +313,19 @@ Vertical
 .faq-text {
     display: flex;
     justify-content: center;
+    max-width: 80%;
+    margin: 0 10% 0 10%;
+}
+
+.faq-list {
+    width: 80%;
+    padding: 20px 10% 20px 10%;
 }
 
 .faq-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px;
+    padding: 10px 0 10px 0;
+
 }
 .faq-question {
     font-weight: bold;
