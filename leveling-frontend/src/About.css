@@ -1,0 +1,133 @@
+/* Styles globaux pour corriger les problèmes de débordement */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Styles pour la page About */
+.about-page {
+  min-height: 100vh;
+  width: 100%;
+  background: url('./assets/background1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 800px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(5, 9, 28, 0.5) 100%
+  ),
+  rgba(6, 11, 67, 0.5);
+  backdrop-filter: blur(7.5px);
+  border-radius: 12px;
+  border: 1px solid #e1e1e8;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+  color: white;
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.about-subtitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.about-section {
+  color: white;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 256px;
+  height: 38px;
+  margin: 20px auto 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+.button-text {
+  position: absolute;
+  color: white;
+  font-weight: 600;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+.about-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-spacer {
+  height: 150px; /* Ajustez cette valeur selon la hauteur de votre footer */
+  width: 100%;
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 30px 20px;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
+}

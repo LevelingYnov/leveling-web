@@ -15,14 +15,14 @@ header {
 
 /* État après défilement */
 header.scrolled {
-  background-color: rgba(6, 11, 67, 0.8); /* #060B43 avec 80% d'opacité comme dans Figma */
+  background-color: rgba(6, 11, 67, 0.8);
   border-radius: 50px;
   margin: 15px auto;
-  max-width: 902px; /* Largeur exacte du Figma */
-  height: 72px; /* Hauteur exacte du Figma */
-  padding: 0 32px; /* Padding de 32px comme indiqué dans Figma */
+  max-width: 902px;
+  height: 72px;
+  padding: 0 32px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px); /* Pour l'effet background blur */
+  backdrop-filter: blur(5px);
 }
 
 .logo-container {
@@ -58,6 +58,16 @@ nav {
 }
 
 .navbar li:hover {
+  opacity: 0.8;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
   opacity: 0.8;
 }
 

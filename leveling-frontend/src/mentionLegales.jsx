@@ -1,6 +1,8 @@
 import './App.css';
 
 function MentionLegalPage() {
+
+
   return (
     <>
       <h1>Mentions Légales</h1>
