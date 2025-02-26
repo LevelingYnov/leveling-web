@@ -9,7 +9,7 @@ import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 
 function App() {
-
+  
     const logoWidth = 50;
     const logoHeight = 50;
 
