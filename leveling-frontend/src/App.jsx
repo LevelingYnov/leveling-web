@@ -9,7 +9,7 @@ import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 
 function App() {
-    
+  
     const logoWidth = 50;
     const logoHeight = 50;
 
@@ -100,6 +100,14 @@ function App() {
         },
     ];
 
+    const dataRank = [
+        {rank: 1, name: "Frédéric", score: 156, avatar: "avatar1.jpg"},
+        {rank: 2, name: "Benoit Saint Denis", score: 148, avatar: "avatar2.jpg"},
+        {rank: 3, name: "Twilight", score: 147, avatar: "avatar3.jpg"},
+        {rank: 4, name: "Grandingo", score: 139, avatar: "avatar4.jpg"},
+        {rank: 5, name: "Chef", score: 137, avatar: "avatar5.jpg"},
+        {rank: 6, name: "Brass", score: 0, avatar: "avatar6.jpg"},
+    ];
 
     return (
         <Router>
@@ -243,7 +251,7 @@ function App() {
                     <div className={'rank-container'}>
                         <div className={'text'}>
                             <h2 className={'feedback-title'}>Titre h2</h2>
-                            <p><p>
+                            <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                                 sodales maximus risus, quis congue libero convallis vel. Sed ut
                                 lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
@@ -258,23 +266,25 @@ function App() {
                                 sit amet urna augue. Nulla nunc quam, tempor id turpis eu,
                                 vehicula sodales ante. Maecenas ultricies ullamcorper luctus.
                                 Suspendisse sit amet semper justo.*
-                            </p></p>
+                            </p>
                         </div>
-                        <div className={'rank'}>
-                            <div className={'line'}>
-                                <div className={'left'}>
-                                    <p>#1</p>
-                                    <img src={iosLogo} width={50}/>
-                                    <p>name</p>
-                                </div>
-                                <div className={'right'}>
-                                    <p>rank</p>
-                                </div>
 
-
+                        <div className="leaderboard-container">
+                            <div className="leaderboard">
+                                {dataRank.map((entry, index) => (
+                                    <div className="leaderboard-item" key={index}>
+                                        <div className="rank">#{entry.rank}</div>
+                                        <img
+                                            src={iosLogo}
+                                            width='50'
+                                            alt={entry.name}
+                                            className="avatar"
+                                        />
+                                        <div className="name">{entry.name}</div>
+                                        <div className="score">{entry.score}</div>
+                                    </div>
+                                ))}
                             </div>
-                            <div className={'line'}></div>
-                            <div className={'line'}></div>
                         </div>
                     </div>
                 </div>

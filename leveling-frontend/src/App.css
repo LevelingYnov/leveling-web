@@ -145,13 +145,6 @@ main {
     width: 30%;
 }
 
-.rank {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    border: dashed white;
-}
-
 .line {
     display: contents;
     justify-content: space-between;
@@ -159,4 +152,66 @@ main {
 
 .left {
     display: contents;
+}
+
+.leaderboard-container {
+    width: 80%;
+    padding: 20px 10% 20px 10%;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.leaderboard-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.leaderboard-subtitle {
+    font-size: 1rem;
+    color: #cfcfcf;
+    margin-bottom: 20px;
+}
+
+.leaderboard {
+    background: #05091c;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #181835;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #62dafb;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.score {
+    font-size: 1.2rem;
+    color: #62dafb;
 }
