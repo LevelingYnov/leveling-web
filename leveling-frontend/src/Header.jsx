@@ -1,9 +1,28 @@
+import { useState, useEffect } from 'react';
 import './Header.css';
 import logo from './assets/logo.svg';
 
 function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Appliquer l'effet après un léger défilement
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
-    <header>
+    <header className={scrolled ? "scrolled" : ""}>
       <div className="logo-container">
         <img src={logo} alt="Leveling" className="logo" />
       </div>
