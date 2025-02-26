@@ -144,16 +144,32 @@ Vertical
     max-height: calc(2 * (136px + 20px) + 20px); !*SUPPRIMEZ ou adaptez selon votre besoin *!
     max-width: calc(2 * (268px + 20px) + 20px);
 }*/
+@property --w_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+}
+
+@property --h_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vh;
+}
+
+:root {
+    --w: tan(atan2(var(--w_raw), 1px));
+    --h: tan(atan2(var(--h_raw), 1px));
+}
 
 .feedback-list {
     display: flex;
     flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
-    overflow-x: auto; /* Gardez pour le défilement horizontal */
+    overflow-x: auto; /* Gardez pour le défilement horizontal */ /* Pour enlever la barre, mettre en hidden*/
     scroll-snap-type: x mandatory;
     gap: 20px;
     padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
     /*max-width: calc(2 * (268px + 20px) + 20px);*/
-    max-width: 1690px;
+    max-width: calc(var(--w_raw) - 17px);
 }
 
 .feedback-list::-webkit-scrollbar { /* Style optionnel pour la scrollbar (navigateurs Webkit) */
