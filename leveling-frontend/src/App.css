@@ -215,3 +215,39 @@ main {
     font-size: 1.2rem;
     color: #62dafb;
 }
+
+.faq-title {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-text {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #1a224a;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-question:hover {
+    background-color: #222d5c;
+}
+.faq-reponse {
+    display: none;
+    padding: 10px;
+    background-color: #1e2b5a;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
