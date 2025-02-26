@@ -1,13 +1,13 @@
 footer {
   display: flex;
-  width: 100%;
+  /*width: 92.9%;*/
   padding: 24px 60px;  /* Réduit de 40px à 24px */
   flex-direction: column;
   gap: 16px;  /* Réduit de 24px à 16px */
-  background: var(--Black-blue, #05091C);
-  font-family: "Mark Pro";
+  background: #05091C;
+  font-family: "Mark Pro", sans-serif;
   text-align: center;
-  color: var(--White, #F0F5FC);
+  color: white;
   font-size: 14px;  /* Réduit de 16px à 14px */
   font-style: normal;
   font-weight: 500;
@@ -54,10 +54,10 @@ footer {
 }
 
 .link-line a {
-  color: var(--White, #F0F5FC);
+  color: #F0F5FC;
   text-decoration: none;
-  font-size: 16px; 
-  font-family: "Mark Pro";
+  font-size: 16px;
+  font-family: "Mark Pro", sans-serif;
   font-weight: 500;
   transition: opacity 0.3s ease;
   text-align: center;
@@ -69,8 +69,8 @@ footer {
 }
 
 .copyright {
-  color: var(--White, #F0F5FC);
-  font-family: "Mark Pro";
+  color: #F0F5FC;
+  font-family: "Mark Pro", sans-serif;
   font-size: 12px;  /* Réduit de 16px à 12px */
   font-weight: 500;
   text-align: center;

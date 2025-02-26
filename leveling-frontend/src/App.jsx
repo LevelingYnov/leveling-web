@@ -224,22 +224,25 @@ function App() {
           <div className={'feedback-container'}>
             <div className={'feedback-header'}>
               <h2 className={'feedback-title'}>Titre H2</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                sodales maximus risus, quis congue libero convallis vel. Sed ut
-                lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-                efficitur blandit. Maecenas hendrerit ante non lobortis
-                condimentum. Vivamus sodales tellus id tincidunt lacinia.
-                Quisque nec tellus nec massa ultrices consectetur id vel ante.
-                Duis nec nisi mollis, efficitur lorem pharetra, sagittis sapien.
-                Integer eu tellus eget purus ullamcorper efficitur. Sed ac lacus
-                placerat, cursus libero ac, elementum nunc. Proin at lectus id
-                metus suscipit dictum sit amet a urna. Duis bibendum mauris eu
-                turpis viverra egestas. Pellentesque semper arcu eu rhoncus
-                mattis. Nunc sit amet urna augue. Nulla nunc quam, tempor id
-                turpis eu, vehicula sodales ante. Maecenas ultricies ullamcorper
-                luctus. Suspendisse sit amet semper justo.*
-              </p>
+              <div className={'feedback-text'}>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sodales maximus risus, quis congue libero convallis vel. Sed
+                  ut lorem quis nisl finibus pharetra. Donec dictum lorem vel
+                  odio efficitur blandit. Maecenas hendrerit ante non lobortis
+                  condimentum. Vivamus sodales tellus id tincidunt lacinia.
+                  Quisque nec tellus nec massa ultrices consectetur id vel ante.
+                  Duis nec nisi mollis, efficitur lorem pharetra, sagittis
+                  sapien. Integer eu tellus eget purus ullamcorper efficitur.
+                  Sed ac lacus placerat, cursus libero ac, elementum nunc. Proin
+                  at lectus id metus suscipit dictum sit amet a urna. Duis
+                  bibendum mauris eu turpis viverra egestas. Pellentesque semper
+                  arcu eu rhoncus mattis. Nunc sit amet urna augue. Nulla nunc
+                  quam, tempor id turpis eu, vehicula sodales ante. Maecenas
+                  ultricies ullamcorper luctus. Suspendisse sit amet semper
+                  justo.*
+                </p>
+              </div>
             </div>
 
             <div className={'feedback-list'}>
@@ -346,38 +349,50 @@ function App() {
             </div>
           </div>*/}
           <div className={'faq-container'}>
+            <div>
+              <h2 className={'faq-title'}>FAQ</h2>
+              <div className={'faq-text'}>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sodales maximus risus, quis congue libero convallis vel. Sed
+                  ut lorem quis nisl finibus pharetra. Donec dictum lorem vel
+                  odio efficitur blandit. Maecenas hendrerit ante non lobortis
+                  condimentum. Vivamus sodales tellus id tincidunt lacinia.
+                </p>
+              </div>
+            </div>
             {faq.map((entry, index) => (
               <div className="faq-item" key={index}>
                 <div className="faq-question" onClick={toggleFaq}>
                   {entry.question}
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <rect
+                        x="5.99991"
+                        y="2.00024"
+                        width="4"
+                        height="12"
+                        fill="#F0F5FC"
+                      />
+                      <rect
+                        x="14"
+                        y="6"
+                        width="4"
+                        height="12"
+                        transform="rotate(90 14 6)"
+                        fill="#F0F5FC"
+                      />
+                    </svg>
+                  </div>
                 </div>
                 <div className="faq-reponse" onClick={toggleFaq}>
                   {entry.reponse}
-                </div>
-                <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                  >
-                    <rect
-                      x="5.99991"
-                      y="2.00024"
-                      width="4"
-                      height="12"
-                      fill="#F0F5FC"
-                    />
-                    <rect
-                      x="14"
-                      y="6"
-                      width="4"
-                      height="12"
-                      transform="rotate(90 14 6)"
-                      fill="#F0F5FC"
-                    />
-                  </svg>
                 </div>
               </div>
             ))}
