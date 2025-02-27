@@ -46,6 +46,7 @@ main {
     font-style: normal;
     font-weight: 900;
     line-height: normal;
+    margin: 0;
 }
 
 .download-description {
@@ -188,7 +189,7 @@ height: 8px;  Hauteur de la scrollbar
     padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
     /*max-width: calc(2 * (268px + 20px) + 20px);*/
     max-width: calc(var(--w_raw) - 17px);
-
+    scroll-behavior: smooth;
 }
 
 .feedback-list::-webkit-scrollbar { /* Style optionnel pour la scrollbar (navigateurs Webkit) */

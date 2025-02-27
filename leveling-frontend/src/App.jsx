@@ -7,6 +7,77 @@ import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
 
 import iphoneImg from './assets/iphoneDl.png';
+import { useEffect, useRef, useState } from 'react';
+
+// Votre composant FeedbackList
+// eslint-disable-next-line react/prop-types
+const FeedbackList = ({ feedback }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const interval = setInterval(() => {
+        // eslint-disable-next-line react/prop-types
+        const totalItems = feedback.length;
+        if (totalItems === 0) return;
+
+        const newIndex = (currentIndex + 1) % totalItems;
+        setCurrentIndex(newIndex);
+
+        // Récupère la largeur ou hauteur totale selon l'orientation
+        const isHorizontal =
+          containerRef.current.scrollWidth > containerRef.current.clientHeight;
+        const scrollPosition = isHorizontal
+          ? containerRef.current.children[newIndex].offsetLeft
+          : containerRef.current.children[newIndex].offsetTop;
+
+        // Anime le scroll de manière fluide
+        let start =
+          containerRef.current.scrollTop || containerRef.current.scrollLeft;
+        let end = scrollPosition;
+        const duration = 1000; // Durée de l'animation (1000ms = 1s)
+        let startTime = performance.now();
+
+        function animate() {
+          let elapsed = performance.now() - startTime;
+          let fraction = elapsed / duration;
+
+          if (fraction > 1) {
+            fraction = 1;
+          }
+
+          if (isHorizontal) {
+            containerRef.current.scrollLeft = start + (end - start) * fraction;
+          } else {
+            containerRef.current.scrollTop = start + (end - start) * fraction;
+          }
+
+          if (elapsed < duration) {
+            requestAnimationFrame(animate);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }
+  }, [currentIndex, feedback]);
+
+  return (
+    <div ref={containerRef} className="feedback-list">
+      {/* eslint-disable-next-line react/prop-types */}
+      {feedback.map((item) => (
+        <div key={item.id} className="feedback feature-card">
+          <p>{item.description}</p>
+          <p>{item.name}</p>
+          <p>{item.stars}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 function App() {
   const logoWidth = 50;
@@ -127,15 +198,6 @@ function App() {
     },
   ];
 
-  function toggleFaq(element) {
-    let reponse = element.nextElementSibling; // Sélectionne la réponse correspondante
-    if (reponse.style.display === 'block') {
-      reponse.style.display = 'none'; // Cache la réponse si elle est déjà affichée
-    } else {
-      reponse.style.display = 'block'; // Affiche la réponse sinon
-    }
-  }
-
   return (
     <Router>
       <div>
@@ -244,7 +306,7 @@ function App() {
                 </p>
               </div>
             </div>
-
+            <FeedbackList feedback={feedback} />
             <div className={'feedback-list'}>
               {feedback.map((feedback) => (
                 <div key={feedback.id} className="feedback feature-card">
@@ -367,7 +429,7 @@ function App() {
             <div className={'faq-list'}>
               {faq.map((entry, index) => (
                 <div className="faq-item" key={index}>
-                  <div className="faq-question" onClick={toggleFaq}>
+                  <div className="faq-question">
                     {entry.question}
                     <div>
                       <svg
@@ -395,9 +457,7 @@ function App() {
                       </svg>
                     </div>
                   </div>
-                  <div className="faq-reponse" onClick={toggleFaq}>
-                    {entry.reponse}
-                  </div>
+                  <div className="faq-reponse">{entry.reponse}</div>
                 </div>
               ))}
             </div>
