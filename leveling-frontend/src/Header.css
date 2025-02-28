@@ -9,6 +9,20 @@ header {
   padding: 1rem 4rem;
   background-color: transparent;
   z-index: 1000;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+/* État après défilement */
+header.scrolled {
+  background-color: rgba(6, 11, 67, 0.8);
+  border-radius: 50px;
+  margin: 15px auto;
+  max-width: 902px;
+  height: 72px;
+  padding: 0 32px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .logo-container {
@@ -44,6 +58,16 @@ nav {
 }
 
 .navbar li:hover {
+  opacity: 0.8;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
   opacity: 0.8;
 }
 

@@ -1,11 +1,15 @@
 import './App.css';
 import Header from './Header';
+import Contact from './Contact';
 import Footer from './Footer';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import About from './About';
+
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 import MentionLegalPage from './mentionLegales';
 import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
-
 import iphoneImg from './assets/iphoneDl.png';
 import { useEffect, useRef, useState } from 'react';
 
@@ -79,9 +83,11 @@ const FeedbackList = ({ feedback }) => {
   );
 };
 
-function App() {
-  const logoWidth = 50;
-  const logoHeight = 50;
+
+
+function HomePage() {
+    const logoWidth = 50;
+    const logoHeight = 50;
 
   const feedback = [
     {
@@ -199,7 +205,7 @@ function App() {
   ];
 
   return (
-    <Router>
+  
       <div>
         <Header />
         <div id="backgroundInsert1">
@@ -455,10 +461,13 @@ function App() {
                           fill="#F0F5FC"
                         />
                       </svg>
+
+    
                     </div>
                   </div>
                   <div className="faq-reponse">{entry.reponse}</div>
                 </div>
+
               ))}
             </div>
           </div>
@@ -467,12 +476,36 @@ function App() {
 
         <Footer />
 
-        <Routes>
-          <Route path="/mentions-legales" element={<MentionLegalPage />} />
-        </Routes>
+      
       </div>
-    </Router>
   );
+                <div className="footer-spacer"></div>
+
+            </div>
+
+        </>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <div className="app-container">
+                <Header/>
+
+                <div className="page-content">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/contact" element={<Contact/>} />
+                        <Route path="/about" element={<About/>} />
+                        <Route path="/mentions-legales" element={<MentionLegalPage />} />
+                    </Routes>
+                </div>
+
+                <Footer/>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
