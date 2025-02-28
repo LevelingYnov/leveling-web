@@ -78,10 +78,12 @@ footer {
 }
 
 .link-line a {
-  color: var(--White, #F0F5FC);
+  color: #F0F5FC;
   text-decoration: none;
   font-size: 16px;
-  font-family: "Mark Pro";
+
+  font-family: "Mark Pro", sans-serif;
+
   font-weight: 500;
   transition: opacity 0.3s ease;
   text-align: center;
@@ -93,9 +95,11 @@ footer {
 }
 
 .copyright {
-  color: var(--White, #F0F5FC);
-  font-family: "Mark Pro";
+
+  color: #F0F5FC;
+  font-family: "Mark Pro", sans-serif;
   font-size: 12px;
+
   font-weight: 500;
   text-align: center;
 }
