@@ -306,6 +306,7 @@ height: 8px;  Hauteur de la scrollbar
     color: #62dafb;
 }
 
+
 .faq-title {
     display: flex;
     justify-content: center;
@@ -352,3 +353,11 @@ height: 8px;  Hauteur de la scrollbar
     border-radius: 5px;
 }
 
+
+.footer-spacer {
+  height: 150px; /* Ajustez cette valeur selon la hauteur de votre footer */
+  width: 100%;
+  display: block;
+  content: "";
+  clear: both;
+}
