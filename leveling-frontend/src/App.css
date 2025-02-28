@@ -183,7 +183,7 @@ height: 8px;  Hauteur de la scrollbar
 .feedback-list {
     display: flex;
     flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
-    overflow-x: auto; /* Gardez pour le défilement horizontal */
+    overflow-x: hidden; /* Gardez pour le défilement horizontal */
     scroll-snap-type: x mandatory;
     gap: 20px;
     padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
