@@ -59,7 +59,7 @@ const FeedbackList = ({ feedback }) => {
         }
 
         requestAnimationFrame(animate);
-      }, 3000);
+      }, 2000);
 
       return () => clearInterval(interval);
     }
@@ -307,7 +307,7 @@ function App() {
               </div>
             </div>
             <FeedbackList feedback={feedback} />
-            <div className={'feedback-list'}>
+            {/*<div className={'feedback-list'}>
               {feedback.map((feedback) => (
                 <div key={feedback.id} className="feedback feature-card">
                   <p>{feedback.description}</p>
@@ -315,7 +315,7 @@ function App() {
                   <p>{feedback.stars}</p>
                 </div>
               ))}
-            </div>
+            </div>*/}
           </div>
           <div className={'iphone-container'}>
             <img src={iphoneImg} alt="Iphone" id="iphoneIntegration" />
