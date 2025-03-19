@@ -381,6 +381,12 @@ height: 8px;  Hauteur de la scrollbar
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
+  #backgroundInsert1 {
+    background: url('./assets/background1.jpg') bottom;
+    background-size: cover;
+    overflow: hidden;
+    padding-top: 13vh;
+  }
   .download-application-container {
     margin: 10% 10% 0 10%;
     width: calc(80% - 20px);
