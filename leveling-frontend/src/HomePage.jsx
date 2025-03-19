@@ -6,34 +6,67 @@ import { useEffect, useRef, useState } from 'react';
 import Header from './Header.jsx';
 import './Homepage.css';
 
-// Fonction pour basculer l'affichage des réponses FAQ
-function toggleFAQ() {
-  // Sélectionner tous les éléments avec la classe 'faq-question'
-  const faqQuestions = document.querySelectorAll('.faq-question');
+// Définissez ce composant FAQ séparément
+function FAQSection({ faqItems }) {
+  // Utilisez un état pour suivre quelle question est ouverte
+  // L'état initial est un tableau de false (toutes les questions fermées)
+  const [openStates, setOpenStates] = useState(
+    Array(faqItems.length).fill(false)
+  );
 
-  // Ajouter un écouteur d'événement click à chaque question
-  faqQuestions.forEach((question) => {
-    question.addEventListener('click', function () {
-      // Trouver l'élément de réponse correspondant (le prochain élément après la question)
-      const answer = this.nextElementSibling;
+  // Fonction pour basculer l'état d'une question spécifique
+  const toggleQuestion = (index) => {
+    const newOpenStates = [...openStates];
+    newOpenStates[index] = !newOpenStates[index];
+    setOpenStates(newOpenStates);
+  };
 
-      // Basculer la classe 'active' sur la question
-      this.classList.toggle('active');
-
-      // Si la réponse est visible, la masquer, sinon l'afficher
-      if (answer.style.display === 'block') {
-        answer.style.display = 'none';
-      } else {
-        answer.style.display = 'block';
-      }
-
-      // Optionnel: rotation de l'icône plus/moins
-      const icon = this.querySelector('svg');
-      if (icon) {
-        icon.classList.toggle('rotate');
-      }
-    });
-  });
+  return (
+    <div className={'faq-list'}>
+      {faqItems.map((entry, index) => (
+        <div className="faq-item" key={index}>
+          <div
+            className={`faq-question ${openStates[index] ? 'active' : ''}`}
+            onClick={() => toggleQuestion(index)}
+          >
+            {entry.question}
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className={openStates[index] ? 'rotate' : ''}
+              >
+                <rect
+                  x="5.99991"
+                  y="2.00024"
+                  width="4"
+                  height="12"
+                  fill="#F0F5FC"
+                />
+                <rect
+                  x="14"
+                  y="6"
+                  width="4"
+                  height="12"
+                  transform="rotate(90 14 6)"
+                  fill="#F0F5FC"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            className="faq-reponse"
+            style={{ display: openStates[index] ? 'block' : 'none' }}
+          >
+            {entry.reponse}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 // eslint-disable-next-line react/prop-types
@@ -230,7 +263,9 @@ function HomePage() {
     },
   ];
 
-  toggleFAQ();
+  /*useEffect(() => {
+    toggleFAQ();
+  });*/
 
   return (
     <div>
@@ -448,7 +483,8 @@ function HomePage() {
               </p>
             </div>
           </div>
-          <div className={'faq-list'}>
+          <FAQSection faqItems={faq} />
+          {/*<div className={'faq-list'}>
             {faq.map((entry, index) => (
               <div className="faq-item" key={index}>
                 <div className="faq-question">
@@ -482,7 +518,7 @@ function HomePage() {
                 <div className="faq-reponse">{entry.reponse}</div>
               </div>
             ))}
-          </div>
+          </div>*/}
         </div>
         <script></script>
       </div>
