@@ -6,69 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header.jsx';
 import './Homepage.css';
-
-// Définissez ce composant FAQ séparément
-function FAQSection({ faqItems }) {
-  // Utilisez un état pour suivre quelle question est ouverte
-  // L'état initial est un tableau de false (toutes les questions fermées)
-  const [openStates, setOpenStates] = useState(
-    Array(faqItems.length).fill(false)
-  );
-
-  // Fonction pour basculer l'état d'une question spécifique
-  const toggleQuestion = (index) => {
-    const newOpenStates = [...openStates];
-    newOpenStates[index] = !newOpenStates[index];
-    setOpenStates(newOpenStates);
-  };
-
-  return (
-    <div className={'faq-list'}>
-      {faqItems.map((entry, index) => (
-        <div className="faq-item" key={index}>
-          <div
-            className={`faq-question ${openStates[index] ? 'active' : ''}`}
-            onClick={() => toggleQuestion(index)}
-          >
-            {entry.question}
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className={openStates[index] ? 'rotate' : ''}
-              >
-                <rect
-                  x="5.99991"
-                  y="2.00024"
-                  width="4"
-                  height="12"
-                  fill="#F0F5FC"
-                />
-                <rect
-                  x="14"
-                  y="6"
-                  width="4"
-                  height="12"
-                  transform="rotate(90 14 6)"
-                  fill="#F0F5FC"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            className="faq-reponse"
-            style={{ display: openStates[index] ? 'block' : 'none' }}
-          >
-            {entry.reponse}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+import axios from 'axios';
+import apiUrl from './apiUrl.tsx';
+import PropTypes from 'prop-types';
 
 FAQSection.propTypes = {
   faqItems: PropTypes.arrayOf(
@@ -158,6 +98,45 @@ function HomePage() {
   const logoWidth = 50;
   const logoHeight = 50;
 
+  const getRank = async () => {
+    try {
+      const res = await axios.get(apiUrl() + '/classement');
+      return res.data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // Déclaration de realDataRank comme state pour pouvoir mettre à jour l'UI
+  const [realDataRank, setRealDataRank] = useState([]);
+
+  useEffect(() => {
+    getRank().then((r) => {
+      const rankData = [];
+      r.forEach((item) => {
+        rankData.push({
+          name: item.user.username,
+          score: item.user.points,
+          avatar: item.user.avatar,
+        });
+      });
+
+      // Tri du tableau par score en ordre décroissant
+      rankData.sort((a, b) => b.score - a.score);
+
+      // Ajout du rang à chaque élément
+      const rankedData = rankData.map((item, index) => ({
+        rank: index + 1, // Pour commencer à 1 au lieu de 0
+        name: item.name,
+        score: item.score,
+        avatar: item.avatar,
+      }));
+
+      // Mise à jour du state
+      setRealDataRank(rankedData);
+    });
+  }, []); // E
+
   const feedback = [
     {
       id: 1,
@@ -178,81 +157,81 @@ function HomePage() {
       stars: 3,
     },
     {
-      id: 3,
+      id: 4,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 5,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 6,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 7,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 8,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 9,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 10,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 11,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 12,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 13,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
     {
-      id: 3,
+      id: 14,
       description: 'assez bien',
       name: 'Nabil',
       stars: 3,
     },
   ];
 
-  const dataRank = [
+  /*  const dataRank = [
     { rank: 1, name: 'Frédéric', score: 156, avatar: 'avatar1.jpg' },
     { rank: 2, name: 'Benoit Saint Denis', score: 148, avatar: 'avatar2.jpg' },
     { rank: 3, name: 'Twilight', score: 147, avatar: 'avatar3.jpg' },
     { rank: 4, name: 'Grandingo', score: 139, avatar: 'avatar4.jpg' },
     { rank: 5, name: 'Chef', score: 137, avatar: 'avatar5.jpg' },
     { rank: 6, name: 'Brass', score: 0, avatar: 'avatar6.jpg' },
-  ];
+  ];*/
 
   const faq = [
     {
@@ -354,7 +333,6 @@ function HomePage() {
                   </radialGradient>
                 </defs>
               </svg>
-              download
             </div>
           </div>
         </div>
@@ -433,7 +411,7 @@ function HomePage() {
 
           <div className="leaderboard-container">
             <div className="leaderboard">
-              {dataRank.map((entry, index) => (
+              {realDataRank.map((entry, index) => (
                 <div className="leaderboard-item" key={index}>
                   <div className="rank">#{entry.rank}</div>
                   <img
@@ -536,4 +514,74 @@ function HomePage() {
   );
 }
 
+// Définissez ce composant FAQ séparément
+function FAQSection({ faqItems }) {
+  // Utilisez un état pour suivre quelle question est ouverte
+  // L'état initial est un tableau de false (toutes les questions fermées)
+  const [openStates, setOpenStates] = useState(
+    Array(faqItems.length).fill(false)
+  );
+
+  // Fonction pour basculer l'état d'une question spécifique
+  const toggleQuestion = (index) => {
+    const newOpenStates = [...openStates];
+    newOpenStates[index] = !newOpenStates[index];
+    setOpenStates(newOpenStates);
+  };
+
+  return (
+    <div className={'faq-list'}>
+      {faqItems.map((entry, index) => (
+        <div className="faq-item" key={index}>
+          <div
+            className={`faq-question ${openStates[index] ? 'active' : ''}`}
+            onClick={() => toggleQuestion(index)}
+          >
+            {entry.question}
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className={openStates[index] ? 'rotate' : ''}
+              >
+                <rect
+                  x="5.99991"
+                  y="2.00024"
+                  width="4"
+                  height="12"
+                  fill="#F0F5FC"
+                />
+                <rect
+                  x="14"
+                  y="6"
+                  width="4"
+                  height="12"
+                  transform="rotate(90 14 6)"
+                  fill="#F0F5FC"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            className="faq-reponse"
+            style={{ display: openStates[index] ? 'block' : 'none' }}
+          >
+            {entry.reponse}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+FAQSection.propTypes = {
+  faqItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      reponse: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 export default HomePage;
