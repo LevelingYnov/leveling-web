@@ -1,22 +1,21 @@
 footer {
-  /* Positionnement fixe pour créer un overlay sur la page */
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   padding: 24px 60px;
+  background-color: #05091C;
 
-  /* backdrop-filter: blur(5px); Effet de flou */
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 
   /* Styles textuels et de mise en page */
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-family: "Mark Pro";
+  font-family: "Mark Pro", serif;
   text-align: center;
-  color: var(--White, #F0F5FC);
+  color: #F0F5FC;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -34,7 +33,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  border-top: 1px solid var(--White, #F0F5FC);
+  border-top: 1px solid #F0F5FC;
   padding-top: 16px;
 }
 
@@ -66,7 +65,7 @@ footer {
 }
 
 .social-icons img {
-  width: 25.066px;
+  width: 25px;
   height: 24px;
 }
 

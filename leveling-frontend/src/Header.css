@@ -1,3 +1,4 @@
+/* Base header styles */
 header {
   position: fixed;
   top: 0;
@@ -10,10 +11,9 @@ header {
   background-color: transparent;
   z-index: 1000;
   transition: all 0.3s ease;
-  margin: 0 auto;
 }
 
-/* État après défilement */
+/* Scrolled state */
 header.scrolled {
   background-color: rgba(6, 11, 67, 0.8);
   border-radius: 50px;
@@ -25,9 +25,11 @@ header.scrolled {
   backdrop-filter: blur(5px);
 }
 
+/* Logo styles */
 .logo-container {
   display: flex;
   align-items: center;
+  z-index: 1002;
 }
 
 .logo {
@@ -35,6 +37,7 @@ header.scrolled {
   width: auto;
 }
 
+/* Navigation */
 nav {
   display: flex;
   align-items: center;
@@ -51,9 +54,8 @@ nav {
 
 .navbar li {
   color: #FFFFFF;
-  cursor: pointer;
   font-size: 1rem;
-  font-weight: 700; 
+  font-weight: 700;
   transition: opacity 0.3s ease;
 }
 
@@ -71,6 +73,7 @@ nav {
   opacity: 0.8;
 }
 
+/* Download button */
 .download-button {
   position: relative;
   margin-left: 2.5rem;
@@ -91,4 +94,189 @@ nav {
 .download-button svg {
   width: 256px;
   height: 38px;
+}
+
+/* Burger menu */
+.burger-menu {
+  display: none;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1002;
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.burger-bar {
+  height: 3px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.burger-bar:nth-child(1) { top: 0; }
+.burger-bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.burger-bar:nth-child(3) { bottom: 0; }
+
+.burger-menu.active .burger-bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.burger-menu.active .burger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active .burger-bar:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(6, 11, 67, 0.98);
+  z-index: 1001; /* Plus élevé que le footer */
+  display: none; /* Caché par défaut */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+}
+
+/* Close button for mobile menu */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1003;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.close-button:before,
+.close-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+}
+
+.close-button:before {
+  transform: rotate(45deg);
+}
+
+.close-button:after {
+  transform: rotate(-45deg);
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  header.scrolled {
+    max-width: 90%;
+    border-radius: 30px;
+  }
+
+  .navbar {
+    gap: 20px;
+  }
+
+  .download-button svg {
+    width: 200px;
+  }
+
+  .download-button-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header.scrolled {
+    margin: 10px auto;
+    padding: 0 20px;
+    height: 60px;
+    width: 90%;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .mobile-menu-overlay .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .mobile-menu-overlay .navbar li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  .mobile-menu-overlay .download-button {
+    margin: 25px 0 0 0;
+  }
+
+  .download-button-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Cache automatiquement le menu mobile en mode desktop */
+@media (min-width: 769px) {
+  .mobile-menu-overlay {
+    display: none !important; /* Force hiding on larger screens */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+
+  header.scrolled {
+    border-radius: 20px;
+    max-width: 95%;
+  }
+
+  .download-button-text {
+    font-size: 0.8rem;
+  }
+
+  .download-button svg {
+    width: 180px;
+    height: 34px;
+  }
 }
