@@ -303,9 +303,21 @@ height: 8px;  Hauteur de la scrollbar
   color: #62dafb;
 }
 
+.faq-container{
+  margin-top: 25vh;
+}
+
 .faq-title {
   display: flex;
   justify-content: center;
+  color: white;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  background: #05091c;
+  margin: 0;
+  padding-top: 15px;
 }
 
 .faq-text {
@@ -454,7 +466,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .leaderboard-container {
-    width: 90%;
+    width: 100%;
     padding: 10px 5% 10px 5%;
   }
 
@@ -463,7 +475,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .faq-list {
-    width: 90%;
+    width: 100%;
     padding: 10px 5% 10px 5%;
   }
 }
