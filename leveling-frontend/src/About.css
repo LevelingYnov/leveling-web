@@ -15,7 +15,7 @@ html, body, #root {
 .about-page {
   min-height: 100vh;
   width: 100%;
-  background: url('./assets/background1.png');
+  background: url('./assets/background1.png') bottom;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
