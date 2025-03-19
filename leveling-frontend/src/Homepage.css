@@ -1,113 +1,112 @@
-
 #backgroundInsert1 {
-    background: url('./assets/background1.jpg') bottom;
-    background-size: cover;
-    overflow: hidden;
+  background: url('./assets/background1.jpg') bottom;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .download-application-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 47px;
-    background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(5, 9, 28, 0.5) 100%
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 47px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(5, 9, 28, 0.5) 100%
     ),
     rgba(6, 11, 67, 0.5);
-    backdrop-filter: blur(8px);
-    margin: 10% 50% 0 15%;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    width: calc(50% - 20px);
-    transition: transform 0.3s ease,
+  backdrop-filter: blur(8px);
+  margin: 10% 50% 0 15%;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: calc(50% - 20px);
+  transition:
+    transform 0.3s ease,
     box-shadow 0.3s ease;
-    border: 1px solid #e1e1e8;
+  border: 1px solid #e1e1e8;
 }
 
 .download-title {
-    color: white;
-    font-size: 90px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    margin: 0;
+  color: white;
+  font-size: 90px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin: 0;
 }
 
 .download-description {
-    color: #fff !important;
-    font-family: 'Mark Pro', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #fff !important;
+  font-family: 'Mark Pro', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .ios-android-container {
-    display: flex;
-    align-items: flex-end;
-    gap: 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
 }
 
-
 .ios {
-    display: flex;
-    padding: 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 12px;
-    border: 1px solid #363bfc;
-    background: rgba(6, 11, 67, 0.31);
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid #363bfc;
+  background: rgba(6, 11, 67, 0.31);
 }
 
 .android {
-    display: flex;
-    padding: 8px 16px;
-    align-items: center;
-    gap: 8px;
-    border-radius: 12px;
-    border: 1px solid #363bfc;
-    background: rgba(6, 11, 67, 0.31);
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid #363bfc;
+  background: rgba(6, 11, 67, 0.31);
 }
 
 .download-container {
-    display: flex;
-    width: 266px;
-    height: 48px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  width: 266px;
+  height: 48px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .download {
-    width: 255.5px;
-    height: 38px;
-    left: 5px;
-    top: 5px;
+  width: 255.5px;
+  height: 38px;
+  left: 5px;
+  top: 5px;
 }
 
 .feedback-text {
-    width: 80%;
-    margin: 0 10% 0 10%;
-    display: flex;
-    justify-content: center;
+  width: 80%;
+  margin: 0 10% 0 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .feedback-title {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 75px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    background: #05091c;
-    margin: 0;
-    padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  background: #05091c;
+  margin: 0;
+  padding-top: 15px;
 }
 
 /*
@@ -133,20 +132,20 @@ Vertical
     max-width: calc(2 * (268px + 20px) + 20px);
 }*/
 @property --w_raw {
-    syntax: '<length>';
-    inherits: true;
-    initial-value: 100vw;
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vw;
 }
 
 @property --h_raw {
-    syntax: '<length>';
-    inherits: true;
-    initial-value: 100vh;
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vh;
 }
 
 :root {
-    --w: tan(atan2(var(--w_raw), 1px));
-    --h: tan(atan2(var(--h_raw), 1px));
+  --w: tan(atan2(var(--w_raw), 1px));
+  --h: tan(atan2(var(--h_raw), 1px));
 }
 
 /*
@@ -168,174 +167,320 @@ height: 8px;  Hauteur de la scrollbar
 }*/
 
 .feedback-list {
-    display: flex;
-    flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
-    overflow-x: hidden; /* Gardez pour le défilement horizontal */
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
-    /*max-width: calc(2 * (268px + 20px) + 20px);*/
-    max-width: calc(var(--w_raw) - 17px);
-    scroll-behavior: smooth;
+  display: flex;
+  flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
+  overflow-x: hidden; /* Gardez pour le défilement horizontal */
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
+  /*max-width: calc(2 * (268px + 20px) + 20px);*/
+  max-width: calc(var(--w_raw) - 17px);
+  scroll-behavior: smooth;
 }
 
-.feedback-list::-webkit-scrollbar { /* Style optionnel pour la scrollbar (navigateurs Webkit) */
-    /*display: none;*/ /* Cache complètement la scrollbar pour Webkit */
-    height: 4px;
+.feedback-list::-webkit-scrollbar {
+  /* Style optionnel pour la scrollbar (navigateurs Webkit) */
+  /*display: none;*/ /* Cache complètement la scrollbar pour Webkit */
+  height: 4px;
 }
 
-.feedback-list::-webkit-scrollbar-thumb { /* Style optionnel pour le "thumb" de la scrollbar (la partie que l'on déplace) */
-    background-color: #ccc; /* Couleur du "thumb" */
-    border-radius: 4px; /* Bords arrondis */
+.feedback-list::-webkit-scrollbar-thumb {
+  /* Style optionnel pour le "thumb" de la scrollbar (la partie que l'on déplace) */
+  background-color: #ccc; /* Couleur du "thumb" */
+  border-radius: 4px; /* Bords arrondis */
 }
 
-.feedback-list::-webkit-scrollbar-track { /* Style optionnel pour le "track" de la scrollbar (la partie fixe) */
-    background-color: #05091c; /* Couleur du "track" */
-    border-radius: 4px; /* Bords arrondis */
+.feedback-list::-webkit-scrollbar-track {
+  /* Style optionnel pour le "track" de la scrollbar (la partie fixe) */
+  background-color: #05091c; /* Couleur du "track" */
+  border-radius: 4px; /* Bords arrondis */
 }
 
 .feedback {
-    flex: 0 0 auto; /* Empêche les cartes de grandir ou rétrécir et laisse la largeur automatique */
-    width: 300px; /* Définissez une largeur fixe pour chaque carte (ajustez selon vos besoins) */
-    scroll-snap-align: start; /* Aligne le début de chaque carte au point de "snap" lors du défilement */
-    border: 1px solid #ddd; /* Exemple de bordure pour visualiser les cartes */
-    padding: 15px; /* Espacement intérieur pour le contenu de la carte */
-    box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur */
-    border-radius: 8px;
+  flex: 0 0 auto; /* Empêche les cartes de grandir ou rétrécir et laisse la largeur automatique */
+  width: 300px; /* Définissez une largeur fixe pour chaque carte (ajustez selon vos besoins) */
+  scroll-snap-align: start; /* Aligne le début de chaque carte au point de "snap" lors du défilement */
+  border: 1px solid #ddd; /* Exemple de bordure pour visualiser les cartes */
+  padding: 15px; /* Espacement intérieur pour le contenu de la carte */
+  box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur */
+  border-radius: 8px;
 }
 
 #backgroundInsert2 {
-    background: #05091c;
+  background: #05091c;
 }
 
 #iphoneIntegration {
-    width: 20%;
-    object-fit: scale-down;
+  width: 20%;
+  object-fit: scale-down;
 }
 
 .iphone-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #text {
-    width: 30%;
+  width: 30%;
 }
 
 .line {
-    display: contents;
-    justify-content: space-between;
+  display: contents;
+  justify-content: space-between;
 }
 
 .left {
-    display: contents;
+  display: contents;
 }
 
 .leaderboard-container {
-    width: 80%;
-    padding: 20px 10% 20px 10%;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
+  width: 80%;
+  padding: 20px 10% 20px 10%;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 .leaderboard-title {
-    font-size: 2rem;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .leaderboard-subtitle {
-    font-size: 1rem;
-    color: #cfcfcf;
-    margin-bottom: 20px;
+  font-size: 1rem;
+  color: #cfcfcf;
+  margin-bottom: 20px;
 }
 
 .leaderboard {
-    background: #05091c;
-    border-radius: 12px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  background: #05091c;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .leaderboard-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #181835;
-    padding: 10px 15px;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #181835;
+  padding: 10px 15px;
+  border-radius: 8px;
 }
 
 .rank {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #62dafb;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #62dafb;
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .name {
-    flex-grow: 1;
-    text-align: left;
-    font-size: 1rem;
+  flex-grow: 1;
+  text-align: left;
+  font-size: 1rem;
 }
 
 .score {
-    font-size: 1.2rem;
-    color: #62dafb;
+  font-size: 1.2rem;
+  color: #62dafb;
 }
 
-
 .faq-title {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .faq-text {
-    display: flex;
-    justify-content: center;
-    max-width: 80%;
-    margin: 0 10% 0 10%;
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 10% 0 10%;
 }
 
 .faq-list {
-    width: 80%;
-    padding: 20px 10% 20px 10%;
+  width: 80%;
+  padding: 20px 10% 20px 10%;
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px 0 10px 0;
-
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 0 10px 0;
 }
 .faq-question {
-    font-weight: bold;
-    cursor: pointer;
-    padding: 10px;
-    background-color: #1a224a;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #1a224a;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .faq-question:hover {
-    background-color: #222d5c;
+  background-color: #222d5c;
 }
 .faq-question:hover + .faq-reponse {
-    display: block;
+  display: block;
 }
 .faq-reponse {
-    display: none;
+  display: none;
+  padding: 10px;
+  background-color: #1e2b5a;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* Base styles remain the same */
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .download-application-container {
+    margin: 10% 10% 0 10%;
+    width: calc(80% - 20px);
+  }
+
+  .download-title {
+    font-size: 60px;
+  }
+
+  .feedback-title {
+    font-size: 50px;
+  }
+
+  .feedback-text,
+  .faq-text {
+    width: 90%;
+    margin: 0 5% 0 5%;
+  }
+
+  .iphone-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #iphoneIntegration {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
+  #text {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .download-application-container {
+    margin: 5% 5% 0 5%;
+    width: calc(90% - 20px);
+    padding: 15px;
+    gap: 25px;
+  }
+
+  .download-title {
+    font-size: 40px;
+  }
+
+  .ios-android-container {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .ios,
+  .android {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .download-container {
+    width: 100%;
+  }
+
+  .download {
+    width: 100%;
+  }
+
+  .feedback-title {
+    font-size: 35px;
+  }
+
+  .feedback-list {
+    padding-bottom: 10px;
+  }
+
+  .feedback {
+    width: 250px;
     padding: 10px;
-    background-color: #1e2b5a;
-    margin-top: 5px;
-    border-radius: 5px;
+  }
+
+  .rank-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leaderboard-container {
+    width: 90%;
+    padding: 10px 5% 10px 5%;
+  }
+
+  .leaderboard-item {
+    padding: 8px;
+  }
+
+  .faq-list {
+    width: 90%;
+    padding: 10px 5% 10px 5%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .download-application-container {
+    margin: 2% 2% 0 2%;
+    width: calc(96% - 20px);
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .download-title {
+    font-size: 30px;
+  }
+
+  .feedback-title {
+    font-size: 25px;
+  }
+
+  #iphoneIntegration {
+    width: 60%;
+  }
+
+  .leaderboard-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 8px;
+  }
+
+  .rank {
+    margin-bottom: 5px;
+  }
+
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .name {
+    text-align: center;
+    margin-bottom: 5px;
+  }
 }
