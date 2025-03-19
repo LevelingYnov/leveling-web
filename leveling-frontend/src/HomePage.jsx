@@ -6,6 +6,36 @@ import { useEffect, useRef, useState } from 'react';
 import Header from './Header.jsx';
 import './Homepage.css';
 
+// Fonction pour basculer l'affichage des réponses FAQ
+function toggleFAQ() {
+  // Sélectionner tous les éléments avec la classe 'faq-question'
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  // Ajouter un écouteur d'événement click à chaque question
+  faqQuestions.forEach((question) => {
+    question.addEventListener('click', function () {
+      // Trouver l'élément de réponse correspondant (le prochain élément après la question)
+      const answer = this.nextElementSibling;
+
+      // Basculer la classe 'active' sur la question
+      this.classList.toggle('active');
+
+      // Si la réponse est visible, la masquer, sinon l'afficher
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+      } else {
+        answer.style.display = 'block';
+      }
+
+      // Optionnel: rotation de l'icône plus/moins
+      const icon = this.querySelector('svg');
+      if (icon) {
+        icon.classList.toggle('rotate');
+      }
+    });
+  });
+}
+
 // eslint-disable-next-line react/prop-types
 const FeedbackList = ({ feedback, orientation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -200,6 +230,8 @@ function HomePage() {
     },
   ];
 
+  toggleFAQ();
+
   return (
     <div>
       <Header />
@@ -311,7 +343,7 @@ function HomePage() {
         <div className={'iphone-container'}>
           <img src={iphoneImg} alt="Iphone" id="iphoneIntegration" />
           <div id="text">
-            <h2>titre h2</h2>
+            <h2 className={'feedback-title'}>titre h2</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
               sodales maximus risus, quis congue libero convallis vel. Sed ut
@@ -328,7 +360,7 @@ function HomePage() {
               vehicula sodales ante. Maecenas ultricies ullamcorper luctus.
               Suspendisse sit amet semper justo.*
             </p>
-            <div>bouton</div>
+            <div className={'download-button-iphone'}>bouton</div>
           </div>
         </div>
         <div className={'rank-container'}>
