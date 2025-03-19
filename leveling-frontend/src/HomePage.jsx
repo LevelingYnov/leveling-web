@@ -7,7 +7,7 @@ import Header from './Header.jsx';
 import './Homepage.css';
 
 // eslint-disable-next-line react/prop-types
-const FeedbackList = ({ feedback }) => {
+const FeedbackList = ({ feedback, orientation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
 
@@ -21,17 +21,23 @@ const FeedbackList = ({ feedback }) => {
         const newIndex = (currentIndex + 1) % totalItems;
         setCurrentIndex(newIndex);
 
-        // Récupère la largeur ou hauteur totale selon l'orientation
-        const isHorizontal =
-          containerRef.current.scrollWidth > containerRef.current.clientHeight;
-        const scrollPosition = isHorizontal
-          ? containerRef.current.children[newIndex].offsetLeft
-          : containerRef.current.children[newIndex].offsetTop;
+        // Détermine le sens de défilement selon l'orientation
+        const isHorizontal = orientation === 'droite';
+
+        // Récupère la position dcroll appropriée
+        let scrollPosition;
+        if (isHorizontal) {
+          scrollPosition = containerRef.current.children[newIndex].offsetLeft;
+        } else {
+          scrollPosition = containerRef.current.children[newIndex].offsetTop;
+        }
 
         // Anime le scroll de manière fluide
-        let start =
-          containerRef.current.scrollTop || containerRef.current.scrollLeft;
-        let end = scrollPosition;
+        let start = isHorizontal
+          ? containerRef.current.scrollLeft
+          : containerRef.current.scrollTop;
+
+        const end = scrollPosition;
         const duration = 1000; // Durée de l'animation (1000ms = 1s)
         let startTime = performance.now();
 
@@ -55,11 +61,11 @@ const FeedbackList = ({ feedback }) => {
         }
 
         requestAnimationFrame(animate);
-      }, 2000);
+      }, 4000);
 
       return () => clearInterval(interval);
     }
-  }, [currentIndex, feedback]);
+  }, [currentIndex, feedback, orientation]);
 
   return (
     <div ref={containerRef} className="feedback-list">
@@ -300,16 +306,7 @@ function HomePage() {
               </p>
             </div>
           </div>
-          <FeedbackList feedback={feedback} />
-          {/*<div className={'feedback-list'}>
-              {feedback.map((feedback) => (
-                <div key={feedback.id} className="feedback feature-card">
-                  <p>{feedback.description}</p>
-                  <p>{feedback.name}</p>
-                  <p>{feedback.stars}</p>
-                </div>
-              ))}
-            </div>*/}
+          <FeedbackList feedback={feedback} orientation={'droite'} />
         </div>
         <div className={'iphone-container'}>
           <img src={iphoneImg} alt="Iphone" id="iphoneIntegration" />
