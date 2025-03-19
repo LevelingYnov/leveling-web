@@ -3,6 +3,7 @@ import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header.jsx';
 import './Homepage.css';
 
@@ -68,6 +69,15 @@ function FAQSection({ faqItems }) {
     </div>
   );
 }
+
+FAQSection.propTypes = {
+  faqItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        question: PropTypes.string.isRequired,
+        reponse: PropTypes.string.isRequired
+      })
+  ).isRequired
+};
 
 // eslint-disable-next-line react/prop-types
 const FeedbackList = ({ feedback, orientation }) => {

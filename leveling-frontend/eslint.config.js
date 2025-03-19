@@ -33,6 +33,8 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      // Ajouter cette règle pour permettre les apostrophes non échappées
+      'react/no-unescaped-entities': ['error', { forbid: ['>', '"', '}'] }],
     },
   },
 ];
