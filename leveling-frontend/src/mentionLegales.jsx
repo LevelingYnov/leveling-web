@@ -1,4 +1,5 @@
 import './App.css';
+import './mentionLegales.css';
 
 function MentionLegalPage() {
   return (
