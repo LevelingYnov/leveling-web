@@ -3,21 +3,11 @@ import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
 import iphoneImg from './assets/iphoneDl.png';
 import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import Header from './Header.jsx';
 import './Homepage.css';
 import axios from 'axios';
 import apiUrl from './apiUrl.tsx';
 import PropTypes from 'prop-types';
-
-FAQSection.propTypes = {
-  faqItems: PropTypes.arrayOf(
-      PropTypes.shape({
-        question: PropTypes.string.isRequired,
-        reponse: PropTypes.string.isRequired
-      })
-  ).isRequired
-};
 
 // eslint-disable-next-line react/prop-types
 const FeedbackList = ({ feedback, orientation }) => {
@@ -87,7 +77,7 @@ const FeedbackList = ({ feedback, orientation }) => {
         <div key={item.id} className="feedback feature-card">
           <p>{item.description}</p>
           <p>{item.name}</p>
-          <p>{item.stars}</p>
+          <p>{item.stars} / 5</p>
         </div>
       ))}
     </div>
@@ -140,87 +130,108 @@ function HomePage() {
   const feedback = [
     {
       id: 1,
-      description: 'Trop bien',
-      name: 'Younes',
+      description:
+        "Cette appli a complètement transformé ma routine sportive ! Les missions surprises me poussent à me bouger même quand je n'en ai pas envie. J'adore la pression du compte à rebours, ça me motive vraiment !",
+      name: 'Sophie',
       stars: 5,
     },
     {
       id: 2,
-      description: 'bien',
-      name: 'Elias',
+      description:
+        "Le concept est génial et addictif. J'ai perdu 5kg en 2 mois sans m'en rendre compte. Seul bémol : parfois les missions arrivent à des moments vraiment pas pratiques malgré mes réglages.",
+      name: 'Thomas',
       stars: 4,
     },
     {
       id: 3,
-      description: 'assez bien',
-      name: 'Nabil',
+      description:
+        "L'idée est bonne mais le risque de suppression de compte est un peu stressant. Ça me met trop la pression quand je suis déjà fatigué après le boulot.",
+      name: 'Julie',
       stars: 3,
     },
     {
       id: 4,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        "Version premium vraiment worth it ! Les exercices personnalisés sont super efficaces et j'adore pouvoir customiser mon avatar avec les objets exclusifs.",
+      name: 'Maxime',
+      stars: 5,
     },
     {
       id: 5,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        'La compétition avec mes amis me donne une motivation supplémentaire ! Par contre, le système de niveaux pourrait être plus équilibré, on stagne vite après le niveau 15.',
+      name: 'Camille',
+      stars: 4,
     },
     {
       id: 6,
-      description: 'assez bien',
-      name: 'Nabil',
+      description:
+        "J'ai failli perdre mon compte deux fois à cause d'une semaine chargée au travail. Heureusement que je suis passé premium ! L'appli est fun mais peut devenir un stress supplémentaire.",
+      name: 'Nicolas',
       stars: 3,
     },
     {
       id: 7,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        "INCROYABLE !!! J'ai jamais réussi à tenir une routine sport avant cette appli. Le fait que mon perso puisse mourir me fait bouger mon corps même quand j'ai la flemme. Meilleure invention ever !",
+      name: 'Léa',
+      stars: 5,
     },
     {
       id: 8,
-      description: 'assez bien',
-      name: 'Nabil',
+      description:
+        'Application innovante mais attention aux addictions. Je me suis retrouvé à faire des squats à 23h pour sauver mon personnage. Amusant mais parfois trop prenant.',
+      name: 'Alexandre',
       stars: 3,
     },
     {
       id: 9,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        "La progression de la difficulté est bien pensée. Je ne m'ennuie jamais et je vois de vrais résultats physiques. Les défis entre amis sont hyper motivants !",
+      name: 'Emma',
+      stars: 5,
     },
     {
       id: 10,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        'Concept sympa mais bugs fréquents sur Android. Parfois les missions ne se valident pas malgré les exercices faits. Frustrant quand on risque des pénalités.',
+      name: 'Hugo',
+      stars: 2,
     },
     {
       id: 11,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        "J'ai perdu mon compte niveau 25 à cause d'une semaine de maladie... Dommage car j'aimais bien le concept mais je ne recommencerai pas de zéro.",
+      name: 'Marie',
+      stars: 2,
     },
     {
       id: 12,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        "Le meilleur coach sportif que j'ai jamais eu ! L'effet surprise des missions et la peur de perdre mon perso me font bouger comme jamais. J'ai même converti toute ma famille !",
+      name: 'David',
+      stars: 5,
     },
     {
       id: 13,
-      description: 'assez bien',
-      name: 'Nabil',
+      description:
+        'Bonne appli pour se remettre au sport mais je trouve le système un peu punitif. On devrait pouvoir mettre en pause en cas de maladie ou vacances sans tout perdre.',
+      name: 'Laura',
       stars: 3,
     },
     {
       id: 14,
-      description: 'assez bien',
-      name: 'Nabil',
-      stars: 3,
+      description:
+        'Les missions de pénalité sont trop difficiles comparées aux missions normales. Sinon le concept est génial et me permet enfin de rester régulier dans mes activités physiques.',
+      name: 'Antoine',
+      stars: 4,
+    },
+    {
+      id: 15,
+      description:
+        "6 mois d'utilisation et je suis devenu accro au sport grâce à cette appli ! La peur de perdre mon perso me fait lever même les jours où je n'ai pas envie. Les défis entre amis sont hilarants !",
+      name: 'Sarah',
+      stars: 5,
     },
   ];
 
@@ -235,20 +246,64 @@ function HomePage() {
 
   const faq = [
     {
-      question: 'Comment percer sur youtube ?',
-      reponse: 'Fais plus de vidéos',
+      question: 'Comment fonctionnent les missions sportives quotidiennes ?',
+      reponse:
+        'Chaque jour, vous recevez entre 1 et 5 missions sportives à réaliser à des horaires aléatoires. Ces missions apparaissent uniquement pendant les plages horaires que vous avez définies comme disponibles dans vos paramètres.',
     },
     {
-      question: 'Comment percer sur youtube ?',
-      reponse: 'Fais plus de vidéos',
+      question: 'Puis-je modifier mes plages horaires de disponibilité ?',
+      reponse:
+        "Oui, dans la section 'Paramètres' > 'Disponibilités', vous pouvez ajuster vos plages horaires jour par jour. Vos missions n'apparaîtront que pendant ces périodes.",
     },
     {
-      question: 'Comment percer sur youtube ?',
-      reponse: 'Fais plus de vidéos',
+      question: 'Que se passe-t-il si je rate une mission ?',
+      reponse:
+        'Si vous ratez une mission, vous perdez des points et recevez une mission de pénalité à accomplir. Attention : si vous perdez tous vos points, votre personnage sera détruit et votre compte supprimé.',
     },
     {
-      question: 'Comment percer sur youtube ?',
-      reponse: 'Fais plus de vidéos',
+      question: 'Comment fonctionne le système de niveaux ?',
+      reponse:
+        'En accomplissant des missions, vous gagnez des points qui vous permettent de monter de niveau. Chaque niveau débloque de nouvelles fonctionnalités, des objets de personnalisation et augmente votre statut dans la communauté.',
+    },
+    {
+      question: 'La difficulté des exercices est-elle la même pour tous ?',
+      reponse:
+        'Non, la difficulté augmente progressivement en fonction de votre niveau et de vos performances. Plus vous réussissez, plus les exercices deviennent challengeants pour garantir une progression constante.',
+    },
+    {
+      question: 'Comment lancer un défi contre un autre utilisateur ?',
+      reponse:
+        "Dans l'onglet 'Défis', cliquez sur 'Nouveau défi', puis recherchez l'utilisateur que vous souhaitez défier. Sélectionnez le type d'exercice et la durée du défi, puis envoyez votre invitation.",
+    },
+    {
+      question: "Quels sont les avantages de l'abonnement Premium ?",
+      reponse:
+        "L'abonnement Premium vous donne accès à des exercices personnalisés pour progresser plus rapidement, des objets exclusifs de personnalisation pour votre avatar, et une immunité partielle qui protège votre personnage en cas d'échecs répétés.",
+    },
+    {
+      question: "Comment fonctionne l'immunité du compte Premium ?",
+      reponse:
+        "L'immunité Premium vous protège contre la suppression de compte en cas de perte totale de points. Elle vous offre une seconde chance et un délai supplémentaire pour récupérer votre niveau, mais cette protection n'est pas illimitée.",
+    },
+    {
+      question: 'Puis-je annuler une mission si je ne suis pas disponible ?',
+      reponse:
+        'Non, les missions apparaissent uniquement pendant vos plages de disponibilité déclarées. Si vous ne pouvez exceptionnellement pas accomplir une mission, vous subirez les pénalités standard.',
+    },
+    {
+      question: 'Comment savoir quand une nouvelle mission est disponible ?',
+      reponse:
+        "Vous recevez une notification sur votre téléphone lorsqu'une mission apparaît. Vous pouvez personnaliser ces alertes dans 'Paramètres' > 'Notifications'.",
+    },
+    {
+      question: 'Est-ce que les missions expirent ?',
+      reponse:
+        "Oui, chaque mission a une durée limitée pendant laquelle vous devez la compléter. Cette durée est clairement indiquée sur l'écran de mission et varie selon le type d'exercice demandé.",
+    },
+    {
+      question: 'Comment récupérer des points après un échec ?',
+      reponse:
+        'Pour récupérer des points après un échec, vous devez accomplir avec succès les missions de pénalité ainsi que vos missions quotidiennes. Les missions de pénalité sont plus exigeantes mais rapportent plus de points.',
     },
   ];
 
@@ -319,6 +374,18 @@ function HomePage() {
                   d="M20.5 0H255.5L235 38H0L20.5 0Z"
                   fill="url(#paint0_angular_179_4)"
                 />
+                {/* Ajout du texte "download" au milieu du SVG */}
+                <text
+                  x="127.75"
+                  y="24"
+                  textAnchor="middle"
+                  fill="white"
+                  fontFamily="Arial"
+                  fontSize="16"
+                  fontWeight="bold"
+                >
+                  download
+                </text>
                 <defs>
                   <radialGradient
                     id="paint0_angular_179_4"
