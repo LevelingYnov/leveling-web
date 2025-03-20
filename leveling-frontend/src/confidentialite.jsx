@@ -1,3 +1,4 @@
+import './confidentialite.css';
 import './App.css';
 
 function confidentialitePage() {

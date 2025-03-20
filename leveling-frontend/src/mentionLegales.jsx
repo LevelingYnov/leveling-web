@@ -1,10 +1,9 @@
 import './App.css';
+import './mentionLegales.css';
 
 function MentionLegalPage() {
-
-
   return (
-    <>
+    <div className="mention-legal">
       <h1>Mentions Légales</h1>
       <p>Dernière mise à jour : 20/11/2024</p>
       <div className="card">
@@ -104,7 +103,7 @@ function MentionLegalPage() {
           &quot;à remplir&quot;.
         </p>
       </div>
-    </>
+    </div>
   );
 }
 

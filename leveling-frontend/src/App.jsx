@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import MentionLegalPage from './mentionLegales';
 import HomePage from './HomePage.jsx';
+import Confidentialite from './confidentialite.jsx';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/mentions-legales" element={<MentionLegalPage />} />
+            <Route
+              path="/politique-confidentialite"
+              element={<Confidentialite />}
+            />
           </Routes>
         </div>
 

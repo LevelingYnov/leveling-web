@@ -1,0 +1,12 @@
+.confidentialite {
+    background: #05091c;
+    background-size: cover;
+    overflow: hidden;
+    padding: 10vh 20px 20px 20px;
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 45px;
+    }
+}
