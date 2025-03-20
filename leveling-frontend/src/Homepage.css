@@ -3,29 +3,51 @@
   background-size: cover;
   overflow: hidden;
   padding-top: 10vh;
+  padding-bottom: 5vh;
 }
 
 .download-application-container {
+  position: relative;
   display: flex;
+  border-radius: 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 47px;
   background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(5, 9, 28, 0.5) 100%
-    ),
-    rgba(6, 11, 67, 0.5);
-  backdrop-filter: blur(8px);
+          180deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(5, 9, 28, 0.5) 100%
+  ),
+  rgba(6, 11, 67, 0.5);
+  backdrop-filter: blur(8px); /* Effet flou */
   margin: 10% 50% 0 15%;
-  border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 25px;
-  width: calc(50% - 20px);
+  padding: 50px;
+  width: calc(35% - 20px);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  border: 1px solid #e1e1e8;
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* Bordure dégradée sans masquer le fond */
+.download-application-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  padding: 3px; /* Épaisseur de la bordure */
+  background: linear-gradient(180deg, #363BFC, #05091C);
+  -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none; /* Empêche d'interférer avec le contenu */
 }
 
 .download-title {
@@ -52,26 +74,40 @@
   gap: 32px;
 }
 
-.ios {
+.ios, .android {
+  position: relative;
   display: flex;
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 12px;
-  border: 1px solid #363bfc;
-  background: rgba(6, 11, 67, 0.31);
+  background: transparent;
+  backdrop-filter: blur(7px);
+  overflow: hidden;
+  z-index: 1;
 }
 
-.android {
-  display: flex;
-  padding: 8px 16px;
-  align-items: center;
-  gap: 8px;
-  border-radius: 12px;
-  border: 1px solid #363bfc;
-  background: rgba(6, 11, 67, 0.31);
+/* Bordure dégradée sans affecter le fond */
+.ios::before, .android::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1.5px; /* Épaisseur de la bordure */
+  background: linear-gradient(180deg, #363BFC, #05091C);
+  -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
 }
+
 
 .download-container {
   display: flex;
@@ -168,11 +204,12 @@ height: 8px;  Hauteur de la scrollbar
 }*/
 
 .feedback-list {
+  padding-top: 40px;
   display: flex;
   flex-wrap: nowrap; /* Plus explicite - assure que les items ne wrap pas */
   overflow-x: hidden; /* Gardez pour le défilement horizontal */
   scroll-snap-type: x mandatory;
-  gap: 20px;
+  gap: 50px;
   padding-bottom: 20px; /* Peut-être moins pertinent avec le scroll horizontal */
   /*max-width: calc(2 * (268px + 20px) + 20px);*/
   max-width: calc(var(--w_raw) - 17px);
@@ -198,14 +235,41 @@ height: 8px;  Hauteur de la scrollbar
 }
 
 .feedback {
-  flex: 0 0 auto; /* Empêche les cartes de grandir ou rétrécir et laisse la largeur automatique */
-  width: 300px; /* Définissez une largeur fixe pour chaque carte (ajustez selon vos besoins) */
-  scroll-snap-align: start; /* Aligne le début de chaque carte au point de "snap" lors du défilement */
-  border: 1px solid #ddd; /* Exemple de bordure pour visualiser les cartes */
-  padding: 15px; /* Espacement intérieur pour le contenu de la carte */
-  box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur */
+  position: relative;
+  flex: 0 0 auto;
+  width: 28%;
+  scroll-snap-align: start;
+  padding: 15px;
+  box-sizing: border-box;
   border-radius: 8px;
+  height: 100%;
+  background: transparent;
+  box-shadow: 0 0 46px 0 rgba(54, 59, 252, 0.08);
+  backdrop-filter: blur(7px);
+  overflow: hidden;
+  z-index: 1;
 }
+
+/* Bordure dégradée sans masquer le fond */
+.feedback::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px; /* Épaisseur de la bordure */
+  background: linear-gradient(180deg, #363BFC, #05091C);
+  -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
+}
+
 
 #backgroundInsert2 {
   background: #05091c;
@@ -213,7 +277,8 @@ height: 8px;  Hauteur de la scrollbar
 }
 
 #iphoneIntegration {
-  width: 30%;
+  max-width: 254px;
+
   object-fit: scale-down;
 }
 
@@ -231,6 +296,8 @@ height: 8px;  Hauteur de la scrollbar
 
 #text {
   width: 30%;
+  display: block;
+  align-content: center;
 }
 
 .line {
@@ -263,9 +330,10 @@ height: 8px;  Hauteur de la scrollbar
 }
 
 .leaderboard {
-  background: #05091c;
+  background: linear-gradient(180deg, #363BFC, #05091C);
   border-radius: 12px;
   padding: 10px;
+  margin: 10%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -275,7 +343,7 @@ height: 8px;  Hauteur de la scrollbar
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #181835;
+  background-color: #05091C4F;
   padding: 10px 15px;
   border-radius: 8px;
 }
@@ -389,7 +457,7 @@ height: 8px;  Hauteur de la scrollbar
   }
   .download-application-container {
     margin: 10% 10% 0 10%;
-    width: calc(80% - 20px);
+    width: calc(68% - 20px);
   }
 
   .download-title {
@@ -416,20 +484,22 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   #iphoneIntegration {
-    width: 40%;
+    width: 100%;
     margin-bottom: 20px;
+    object-fit: scale-down;
   }
 
   #text {
     width: 80%;
     text-align: center;
+    align-content: center;
   }
 }
 
 @media screen and (max-width: 768px) {
   .download-application-container {
     margin: 5% 5% 0 5%;
-    width: calc(90% - 20px);
+    width: calc(78% - 20px);
     padding: 15px;
     gap: 25px;
   }
@@ -512,7 +582,8 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   #iphoneIntegration {
-    width: 60%;
+    width: 10%;
+
   }
 
   .leaderboard-item {
