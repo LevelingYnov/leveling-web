@@ -300,6 +300,9 @@ height: 8px;  Hauteur de la scrollbar
   display: flex;
   justify-content: center;
 }
+.download-button-text {
+  color: white;
+}
 
 #text {
   width: 30%;

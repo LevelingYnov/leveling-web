@@ -365,60 +365,32 @@ function HomePage() {
             </div>*/}
 
             <div className={'download'}>
-              <div className={'scanMe'}>
-                {/*<svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="256"
-                  height="38"
-                  viewBox="0 0 256 38"
-                  fill="none"
-                >
-                  <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
-                  <text
-                    x="128"
-                    y="24"
-                    textAnchor="middle"
-                    fill="#333"
-                    fontFamily="Arial"
-                    fontSize="14"
-                    fontWeight="bold"
+              <ScrollTarget id="download-section" className="download">
+                <div className="scanMe">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="256"
+                    height="38"
+                    viewBox="0 0 256 38"
+                    fill="black"
                   >
-                    Scannez-moi !
-                  </text>
-                </svg>*/}
-                <img
-                  className={'picture'}
-                  src={ctaButton}
-                  width={scanMeWidht}
-                  alt={'Scanner le QR Code'}
-                />
-              </div>
+                    <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#2E33C8" />
+                    <text
+                      x="128"
+                      y="24"
+                      textAnchor="middle"
+                      fill="white"
+                      fontFamily="Arial"
+                      fontSize="14"
+                      fontWeight="bold"
+                    >
+                      Scannez-moi !
+                    </text>
+                  </svg>
+                </div>
+              </ScrollTarget>
             </div>
           </div>
-          <ScrollTarget id="download-section" className="download">
-            <div className="scanMe">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="256"
-                height="38"
-                viewBox="0 0 256 38"
-                fill="black"
-              >
-                <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
-                <text
-                  x="128"
-                  y="24"
-                  textAnchor="middle"
-                  fill="#333"
-                  fontFamily="Arial"
-                  fontSize="14"
-                  fontWeight="bold"
-                >
-                  Scannez-moi !
-                </text>
-              </svg>
-            </div>
-          </ScrollTarget>
         </div>
       </div>
 
@@ -454,14 +426,23 @@ function HomePage() {
                 duration={1000} // Durée en millisecondes
                 className="download-button"
               >
-                <a href={'#download-section'}>
-                  <img
-                    className={'picture'}
-                    src={ctaButton2}
-                    width={scanMeWidht}
-                    alt={'Scanner le QR Code'}
+                <text className="download-button-text" fill="white">
+                  Télécharger l'application
+                </text>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="256"
+                  height="38"
+                  viewBox="0 0 256 38"
+                  fill="none"
+                >
+                  <path
+                    d="M20.5 0H255.5L235 38H0L20.5 0Z"
+                    fill="transparent"
+                    stroke="#FFFFFF" // Bordure blanche
+                    strokeWidth="2" // Épaisseur de la bordure
                   />
-                </a>
+                </svg>
               </ScrollLink>
             </div>
           </div>
