@@ -576,7 +576,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .ios-android-container {
-    flex-direction: column;
+    display: flex;
     gap: 15px;
     width: 100%;
   }
@@ -632,7 +632,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 610px) {
   .download-application-container {
     margin: 2% 2% 0 2%;
     width: calc(96% - 20px);
