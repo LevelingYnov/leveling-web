@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import './Header.css';
 import logo from './assets/logo.svg';
 
@@ -104,7 +105,12 @@ function Header() {
                 Contact
               </Link>
             </li>
-            <a href="#download-section" className="download-button">
+            <ScrollLink
+              to="download-section"
+              smooth={true}
+              duration={1000} // Durée en millisecondes
+              className="download-button"
+            >
               <span className="download-button-text">
                 Télécharger l'application
               </span>
@@ -117,7 +123,7 @@ function Header() {
               >
                 <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
               </svg>
-            </a>
+            </ScrollLink>
           </ul>
         </nav>
       </header>
@@ -159,8 +165,10 @@ function Header() {
               Contact
             </Link>
           </li>
-          <a
-            href="#"
+          <ScrollLink
+            to="download-section"
+            smooth={true}
+            duration={1000} // Durée en millisecondes
             className="download-button"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -176,7 +184,7 @@ function Header() {
             >
               <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
             </svg>
-          </a>
+          </ScrollLink>
         </ul>
       </div>
     </>

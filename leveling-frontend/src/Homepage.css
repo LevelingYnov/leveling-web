@@ -293,7 +293,9 @@ height: 8px;  Hauteur de la scrollbar
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
-
+.download-button {
+  cursor: pointer;
+}
 .download-button-iphone {
   display: flex;
   justify-content: center;
@@ -354,22 +356,32 @@ height: 8px;  Hauteur de la scrollbar
 }
 
 .rank {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #62dafb;
+  color: white;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 50%;        /* Crée l'effet circulaire */
+  object-fit: cover;         /* Assure que l'image remplit bien le cercle */
+  border: 2px solid #3b82f6; /* Bordure bleue */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Ombre subtile */
+}
+
+/* Si vous voulez un effet spécial au survol */
+.avatar:hover {
+  transform: scale(1.05);    /* Légère augmentation de taille au survol */
+  transition: transform 0.3s ease;
 }
 
 .name {
   flex-grow: 1;
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .score {
@@ -383,6 +395,10 @@ height: 8px;  Hauteur de la scrollbar
 
 .diamond-score {
   position: relative;
+}
+
+.score-text {
+  font-family: sans-serif;
 }
 
 .faq-container{
@@ -544,7 +560,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1457px) {
   .download-application-container {
     margin: 5% 5% 0 5%;
     width: calc(78% - 20px);

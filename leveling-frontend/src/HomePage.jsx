@@ -10,6 +10,7 @@ import './Homepage.css';
 import axios from 'axios';
 import apiUrl from './apiUrl.tsx';
 import PropTypes from 'prop-types';
+import { Link as ScrollLink } from 'react-scroll';
 
 // eslint-disable-next-line react/prop-types
 const FeedbackList = ({ feedback, orientation }) => {
@@ -101,33 +102,6 @@ function HomePage() {
 
   // Déclaration de realDataRank comme state pour pouvoir mettre à jour l'UI
   const [realDataRank, setRealDataRank] = useState([]);
-
-  useEffect(() => {
-    getRank().then((r) => {
-      const rankData = [];
-      r.forEach((item) => {
-        rankData.push({
-          name: item.user.username,
-          score: item.user.points,
-          avatar: item.user.avatar,
-        });
-      });
-
-      // Tri du tableau par score en ordre décroissant
-      rankData.sort((a, b) => b.score - a.score);
-
-      // Ajout du rang à chaque élément
-      const rankedData = rankData.map((item, index) => ({
-        rank: index + 1, // Pour commencer à 1 au lieu de 0
-        name: item.name,
-        score: item.score,
-        avatar: item.avatar,
-      }));
-
-      // Mise à jour du state
-      setRealDataRank(rankedData);
-    });
-  }, []); // E
 
   const feedback = [
     {
@@ -309,9 +283,32 @@ function HomePage() {
     },
   ];
 
-  /*useEffect(() => {
-    toggleFAQ();
-  });*/
+  useEffect(() => {
+    getRank().then((r) => {
+      const rankData = [];
+      r.forEach((item) => {
+        rankData.push({
+          name: item.user.username,
+          score: item.user.points,
+          avatar: item.user.avatar,
+        });
+      });
+
+      // Tri du tableau par score en ordre décroissant
+      rankData.sort((a, b) => b.score - a.score);
+
+      // Ajout du rang à chaque élément
+      const rankedData = rankData.map((item, index) => ({
+        rank: index + 1, // Pour commencer à 1 au lieu de 0
+        name: item.name,
+        score: item.score,
+        avatar: item.avatar,
+      }));
+
+      // Mise à jour du state
+      setRealDataRank(rankedData);
+    });
+  }, []); // E
 
   return (
     <div>
@@ -398,7 +395,30 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div className={'download-container'}></div>
+          <ScrollTarget id="download-section" className="download">
+            <div className="scanMe">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="38"
+                viewBox="0 0 256 38"
+                fill="black"
+              >
+                <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
+                <text
+                  x="128"
+                  y="24"
+                  textAnchor="middle"
+                  fill="#333"
+                  fontFamily="Arial"
+                  fontSize="14"
+                  fontWeight="bold"
+                >
+                  Scannez-moi !
+                </text>
+              </svg>
+            </div>
+          </ScrollTarget>
         </div>
       </div>
 
@@ -428,14 +448,21 @@ function HomePage() {
               conséquences.
             </p>
             <div className={'download-button-iphone'}>
-              <a href={'#download-section'}>
-                <img
-                  className={'picture'}
-                  src={ctaButton2}
-                  width={scanMeWidht}
-                  alt={'Scanner le QR Code'}
-                />
-              </a>
+              <ScrollLink
+                to="download-section"
+                smooth={true}
+                duration={1000} // Durée en millisecondes
+                className="download-button"
+              >
+                <a href={'#download-section'}>
+                  <img
+                    className={'picture'}
+                    src={ctaButton2}
+                    width={scanMeWidht}
+                    alt={'Scanner le QR Code'}
+                  />
+                </a>
+              </ScrollLink>
             </div>
           </div>
         </div>
@@ -464,6 +491,7 @@ function HomePage() {
                     className="avatar"
                   />
                   <div className="name">{entry.name}</div>
+
                   <div className="score-container">
                     <div className="diamond-score">
                       <svg
@@ -474,17 +502,19 @@ function HomePage() {
                       >
                         <polygon
                           points="50,10 90,50 50,90 10,50"
-                          fill="white"
-                          stroke="#e0e0e0"
+                          fill="#363BFC"
                           strokeWidth="1"
                         />
                         <text
+                          className={'score-text'}
                           x="50"
                           y="55"
                           fontSize="24"
-                          fill="#3366cc"
+                          fill="white"
                           textAnchor="middle"
                           dominantBaseline="middle"
+                          fontStyle="normal"
+                          fontWeight="900"
                         >
                           {entry.score}
                         </text>
@@ -587,4 +617,18 @@ FAQSection.propTypes = {
     })
   ).isRequired,
 };
+export const ScrollTarget = ({ id, className, children }) => {
+  return (
+    <div id={id} className={className}>
+      {children}
+    </div>
+  );
+};
+// Définir les PropTypes
+ScrollTarget.propTypes = {
+  id: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
 export default HomePage;
