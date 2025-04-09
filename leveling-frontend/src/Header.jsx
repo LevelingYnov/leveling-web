@@ -66,64 +66,120 @@ function Header() {
   };
 
   return (
-      <>
-        <header className={scrolled ? "scrolled" : ""}>
-          <div className="logo-container">
-            <Link to="/">
-              <img src={String(logo)} alt="Leveling" className="logo" />
-            </Link>
-          </div>
+    <>
+      <header className={scrolled ? 'scrolled' : ''}>
+        <div className="logo-container">
+          <Link to="/">
+            <img src={String(logo)} alt="Leveling" className="logo" />
+          </Link>
+        </div>
 
-          {/* Burger Menu Button */}
-          <button
-              className={`burger-menu ${mobileMenuOpen ? "active" : ""}`}
-              onClick={toggleMobileMenu}
-              aria-label="Menu principal"
-              aria-expanded={mobileMenuOpen}
-          >
-            <div className="burger-bar"></div>
-            <div className="burger-bar"></div>
-            <div className="burger-bar"></div>
-          </button>
+        {/* Burger Menu Button */}
+        <button
+          className={`burger-menu ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Menu principal"
+          aria-expanded={mobileMenuOpen}
+        >
+          <div className="burger-bar"></div>
+          <div className="burger-bar"></div>
+          <div className="burger-bar"></div>
+        </button>
 
-          {/* Desktop Navigation */}
-          <nav>
-            <ul className="navbar">
-              <li><Link to="/" className="nav-link">Home</Link></li>
-              <li><Link to="/about" className="nav-link">About</Link></li>
-              <li><Link to="/contact" className="nav-link">Contact</Link></li>
-              <a href="" className="download-button">
-                <span className="download-button-text">Télécharger l'application</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="256" height="38" viewBox="0 0 256 38" fill="none">
-                  <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC"/>
-                </svg>
-              </a>
-            </ul>
-          </nav>
-        </header>
-
-        {/* Mobile Menu Overlay - Separate from header */}
-        <div className={`mobile-menu-overlay ${mobileMenuOpen ? "active" : ""}`}>
-          {/* Close button (X) */}
-          <button
-              className="close-button"
-              onClick={closeMobileMenu}
-              aria-label="Fermer le menu"
-          ></button>
-
+        {/* Desktop Navigation */}
+        <nav>
           <ul className="navbar">
-            <li><Link to="/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
-            <li><Link to="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
-            <a href="#" className="download-button" onClick={() => setMobileMenuOpen(false)}>
-              <span className="download-button-text">Télécharger l'application</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="256" height="38" viewBox="0 0 256 38" fill="none">
-                <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC"/>
+            <li>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
+            </li>
+            <a href="#download-section" className="download-button">
+              <span className="download-button-text">
+                Télécharger l'application
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="38"
+                viewBox="0 0 256 38"
+                fill="none"
+              >
+                <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
               </svg>
             </a>
           </ul>
-        </div>
-      </>
+        </nav>
+      </header>
+
+      {/* Mobile Menu Overlay - Separate from header */}
+      <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'active' : ''}`}>
+        {/* Close button (X) */}
+        <button
+          className="close-button"
+          onClick={closeMobileMenu}
+          aria-label="Fermer le menu"
+        ></button>
+
+        <ul className="navbar">
+          <li>
+            <Link
+              to="/"
+              className="nav-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className="nav-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              className="nav-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </li>
+          <a
+            href="#"
+            className="download-button"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <span className="download-button-text">
+              Télécharger l'application
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="256"
+              height="38"
+              viewBox="0 0 256 38"
+              fill="none"
+            >
+              <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
+            </svg>
+          </a>
+        </ul>
+      </div>
+    </>
   );
 }
 

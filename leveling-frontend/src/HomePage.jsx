@@ -1,6 +1,8 @@
 // Votre composant FeedbackList
-import androidLogo from './assets/play-store-logo.png';
 import iosLogo from './assets/mac-os.png';
+import qrLogo from './assets/qr-code.svg';
+import ctaButton from './assets/button cta.svg';
+import ctaButton2 from './assets/button cta2.svg';
 import iphoneImg from './assets/iphoneDl.png';
 import { useEffect, useRef, useState } from 'react';
 import Header from './Header.jsx';
@@ -85,8 +87,8 @@ const FeedbackList = ({ feedback, orientation }) => {
 };
 
 function HomePage() {
-  const logoWidth = 50;
-  const logoHeight = 50;
+  const logoWidth = 150;
+  const scanMeWidht = 250;
 
   const getRank = async () => {
     try {
@@ -166,9 +168,9 @@ function HomePage() {
     {
       id: 6,
       description:
-        "J'ai failli perdre mon compte deux fois à cause d'une semaine chargée au travail. Heureusement que je suis passé premium ! L'appli est fun mais peut devenir un stress supplémentaire.",
+        "J'ai découvert que l'option premium résout tous les problèmes de flexibilité ! Maintenant je peux adapter mes missions à mon emploi du temps et l'appli reste fun sans le stress.",
       name: 'Nicolas',
-      stars: 3,
+      stars: 4,
     },
     {
       id: 7,
@@ -180,9 +182,9 @@ function HomePage() {
     {
       id: 8,
       description:
-        'Application innovante mais attention aux addictions. Je me suis retrouvé à faire des squats à 23h pour sauver mon personnage. Amusant mais parfois trop prenant.',
+        'Application géniale et vraiment addictive dans le bon sens ! Je me surprends à faire des exercices à des moments inattendus et mes amis ont remarqué ma transformation physique. Recommandé à 100% !',
       name: 'Alexandre',
-      stars: 3,
+      stars: 5,
     },
     {
       id: 9,
@@ -194,16 +196,16 @@ function HomePage() {
     {
       id: 10,
       description:
-        'Concept sympa mais bugs fréquents sur Android. Parfois les missions ne se valident pas malgré les exercices faits. Frustrant quand on risque des pénalités.',
+        'Concept brillant et la dernière mise à jour a résolu tous les bugs ! La validation des missions est maintenant fluide et les nouvelles fonctionnalités de suivi de progression sont top.',
       name: 'Hugo',
-      stars: 2,
+      stars: 4,
     },
     {
       id: 11,
       description:
-        "J'ai perdu mon compte niveau 25 à cause d'une semaine de maladie... Dommage car j'aimais bien le concept mais je ne recommencerai pas de zéro.",
+        "L'option 'pause maladie' du compte premium m'a sauvé quand j'étais cloué au lit! Merci pour cette fonctionnalité qui respecte nos contraintes tout en gardant la motivation intacte.",
       name: 'Marie',
-      stars: 2,
+      stars: 4,
     },
     {
       id: 12,
@@ -215,16 +217,16 @@ function HomePage() {
     {
       id: 13,
       description:
-        'Bonne appli pour se remettre au sport mais je trouve le système un peu punitif. On devrait pouvoir mettre en pause en cas de maladie ou vacances sans tout perdre.',
+        "Excellente application qui m'a permis de me remettre sérieusement au sport. Le système de récompenses est addictif et j'adore collectionner les badges de progression !",
       name: 'Laura',
-      stars: 3,
+      stars: 4,
     },
     {
       id: 14,
       description:
-        'Les missions de pénalité sont trop difficiles comparées aux missions normales. Sinon le concept est génial et me permet enfin de rester régulier dans mes activités physiques.',
+        "Les missions sont bien équilibrées et la progression est parfaite. Le système de pénalité est juste ce qu'il faut pour me motiver sans me décourager. Meilleure appli fitness que j'ai essayée !",
       name: 'Antoine',
-      stars: 4,
+      stars: 5,
     },
     {
       id: 15,
@@ -316,25 +318,29 @@ function HomePage() {
       <Header />
       <div id="backgroundInsert1">
         <div className="download-application-container ">
-          <h1 className={'download-title'}>Titre H1</h1>
-          <p className={'download-descriptions'}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            sodales maximus risus, quis congue libero convallis vel. Sed ut
-            lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-            efficitur blandit. Maecenas hendrerit ante non lobortis condimentum.
-            Vivamus sodales tellus id tincidunt lacinia. Quisque nec tellus nec
-            massa ultrices consectetur id vel ante. Duis nec nisi mollis,
-            efficitur lorem pharetra, sagittis sapien. Integer eu tellus eget
-            purus ullamcorper efficitur. Sed ac lacus placerat, cursus libero
-            ac, elementum nunc. Proin at lectus id metus suscipit dictum sit
-            amet a urna. Duis bibendum mauris eu turpis viverra egestas.
-            Pellentesque semper arcu eu rhoncus mattis. Nunc sit amet urna
-            augue. Nulla nunc quam, tempor id turpis eu, vehicula sodales ante.
-            Maecenas ultricies ullamcorper luctus. Suspendisse sit amet semper
-            justo.
+          <h1 className={'download-title'}>
+            LEVELING : L'AVENTURE FITNESS QUI DÉFIE VOS LIMITES
+          </h1>
+          <p id="download-section" className={'download-descriptions'}>
+            Transformez votre routine sportive en aventure quotidienne !
+            Leveling révolutionne votre façon de faire du sport en intégrant des
+            défis surprises dans votre journée. Ne vous contentez plus
+            d'exercices monotones - relevez des missions à des moments
+            inattendus, progressez dans un univers ludique et risquez tout pour
+            rester motivé. Êtes-vous prêt à mettre votre discipline à l'épreuve
+            ?
           </p>
           <div className={'ios-android-container'}>
-            <div className={'ios'}>
+            <div className={'qr-code'}>
+              <img
+                className={'picture'}
+                id={'qr-code'}
+                src={qrLogo}
+                width={logoWidth}
+                alt={'QR Code'}
+              />
+            </div>
+            {/*<div className={'ios'}>
               <img
                 className={'picture'}
                 id={'ios-logo'}
@@ -343,8 +349,8 @@ function HomePage() {
                 width={logoWidth}
                 height={logoHeight}
               />
-              {/*
-               */}
+
+
               App Store
             </div>
             <div className={'android'}>
@@ -356,75 +362,56 @@ function HomePage() {
                 width={logoWidth}
                 height={logoHeight}
               />
-              {/*
-               */}
+
+
               Google Play
-            </div>
-          </div>
-          <div className={'download-container'}>
+            </div>*/}
+
             <div className={'download'}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="256"
-                height="38"
-                viewBox="0 0 256 38"
-                fill="none"
-              >
-                <path
-                  d="M20.5 0H255.5L235 38H0L20.5 0Z"
-                  fill="url(#paint0_angular_179_4)"
-                />
-                {/* Ajout du texte "download" au milieu du SVG */}
-                <text
-                  x="127.75"
-                  y="24"
-                  textAnchor="middle"
-                  fill="white"
-                  fontFamily="Arial"
-                  fontSize="16"
-                  fontWeight="bold"
+              <div className={'scanMe'}>
+                {/*<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="256"
+                  height="38"
+                  viewBox="0 0 256 38"
+                  fill="none"
                 >
-                  download
-                </text>
-                <defs>
-                  <radialGradient
-                    id="paint0_angular_179_4"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(127.75 19) scale(127.75 19)"
+                  <path d="M20.5 0H255.5L235 38H0L20.5 0Z" fill="#F0F5FC" />
+                  <text
+                    x="128"
+                    y="24"
+                    textAnchor="middle"
+                    fill="#333"
+                    fontFamily="Arial"
+                    fontSize="14"
+                    fontWeight="bold"
                   >
-                    <stop offset="0.869" stopColor="#363BFC" />
-                    <stop offset="1" stopColor="#242CA9" />
-                  </radialGradient>
-                </defs>
-              </svg>
+                    Scannez-moi !
+                  </text>
+                </svg>*/}
+                <img
+                  className={'picture'}
+                  src={ctaButton}
+                  width={scanMeWidht}
+                  alt={'Scanner le QR Code'}
+                />
+              </div>
             </div>
           </div>
+          <div className={'download-container'}></div>
         </div>
       </div>
 
       <div id="backgroundInsert2">
         <div className={'feedback-container'}>
           <div className={'feedback-header'}>
-            <h2 className={'feedback-title'}>Titre H2</h2>
+            <h2 className={'feedback-title'}>Nos avis</h2>
             <div className={'feedback-text'}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                sodales maximus risus, quis congue libero convallis vel. Sed ut
-                lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-                efficitur blandit. Maecenas hendrerit ante non lobortis
-                condimentum. Vivamus sodales tellus id tincidunt lacinia.
-                Quisque nec tellus nec massa ultrices consectetur id vel ante.
-                Duis nec nisi mollis, efficitur lorem pharetra, sagittis sapien.
-                Integer eu tellus eget purus ullamcorper efficitur. Sed ac lacus
-                placerat, cursus libero ac, elementum nunc. Proin at lectus id
-                metus suscipit dictum sit amet a urna. Duis bibendum mauris eu
-                turpis viverra egestas. Pellentesque semper arcu eu rhoncus
-                mattis. Nunc sit amet urna augue. Nulla nunc quam, tempor id
-                turpis eu, vehicula sodales ante. Maecenas ultricies ullamcorper
-                luctus. Suspendisse sit amet semper justo.*
+                Découvrez ce que nos guerriers du fitness ont à dire ! Des
+                utilisateurs comme vous partagent comment Leveling a transformé
+                leur rapport au sport et leur a permis de dépasser leurs
+                limites, un défi à la fois.
               </p>
             </div>
           </div>
@@ -433,45 +420,34 @@ function HomePage() {
         <div className={'iphone-container'}>
           <img src={iphoneImg} alt="Iphone" id="iphoneIntegration" />
           <div id="text">
-            <h2 className={'feedback-title'}>titre h2</h2>
+            <h2 className={'feedback-title'}>Découvrez-nous</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              sodales maximus risus, quis congue libero convallis vel. Sed ut
-              lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-              efficitur blandit. Maecenas hendrerit ante non lobortis
-              condimentum. Vivamus sodales tellus id tincidunt lacinia. Quisque
-              nec tellus nec massa ultrices consectetur id vel ante. Duis nec
-              nisi mollis, efficitur lorem pharetra, sagittis sapien. Integer eu
-              tellus eget purus ullamcorper efficitur. Sed ac lacus placerat,
-              cursus libero ac, elementum nunc. Proin at lectus id metus
-              suscipit dictum sit amet a urna. Duis bibendum mauris eu turpis
-              viverra egestas. Pellentesque semper arcu eu rhoncus mattis. Nunc
-              sit amet urna augue. Nulla nunc quam, tempor id turpis eu,
-              vehicula sodales ante. Maecenas ultricies ullamcorper luctus.
-              Suspendisse sit amet semper justo.*
+              Votre entraîneur personnel vous attend... mais pas quand vous
+              l'attendez ! Téléchargez Leveling maintenant et plongez dans un
+              monde où chaque exercice compte et chaque échec a des
+              conséquences.
             </p>
-            <div className={'download-button-iphone'}>bouton</div>
+            <div className={'download-button-iphone'}>
+              <a href={'#download-section'}>
+                <img
+                  className={'picture'}
+                  src={ctaButton2}
+                  width={scanMeWidht}
+                  alt={'Scanner le QR Code'}
+                />
+              </a>
+            </div>
           </div>
         </div>
         <div className={'rank-container'}>
           <div className={'text'}>
-            <h2 className={'feedback-title'}>Titre h2</h2>
+            <h2 className={'feedback-title'}>Classement</h2>
             <div className={'feedback-text'}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                sodales maximus risus, quis congue libero convallis vel. Sed ut
-                lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-                efficitur blandit. Maecenas hendrerit ante non lobortis
-                condimentum. Vivamus sodales tellus id tincidunt lacinia.
-                Quisque nec tellus nec massa ultrices consectetur id vel ante.
-                Duis nec nisi mollis, efficitur lorem pharetra, sagittis sapien.
-                Integer eu tellus eget purus ullamcorper efficitur. Sed ac lacus
-                placerat, cursus libero ac, elementum nunc. Proin at lectus id
-                metus suscipit dictum sit amet a urna. Duis bibendum mauris eu
-                turpis viverra egestas. Pellentesque semper arcu eu rhoncus
-                mattis. Nunc sit amet urna augue. Nulla nunc quam, tempor id
-                turpis eu, vehicula sodales ante. Maecenas ultricies ullamcorper
-                luctus. Suspendisse sit amet semper justo.*
+                Qui sera le dernier survivant ? Grimpez dans notre classement
+                des guerriers les plus disciplinés et montrez à tous que votre
+                détermination est inébranlable. La gloire attend ceux qui ne
+                renoncent jamais.
               </p>
             </div>
           </div>
@@ -488,92 +464,52 @@ function HomePage() {
                     className="avatar"
                   />
                   <div className="name">{entry.name}</div>
-                  <div className="score">{entry.score}</div>
+                  <div className="score-container">
+                    <div className="diamond-score">
+                      <svg
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                      >
+                        <polygon
+                          points="50,10 90,50 50,90 10,50"
+                          fill="white"
+                          stroke="#e0e0e0"
+                          strokeWidth="1"
+                        />
+                        <text
+                          x="50"
+                          y="55"
+                          fontSize="24"
+                          fill="#3366cc"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          {entry.score}
+                        </text>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/*<div className={'faq-container'}>
-            <div>
-              <h2 className={'faq-title'}>FAQ</h2>
-              <div className={'faq-text'}>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  sodales maximus risus, quis congue libero convallis vel. Sed
-                  ut lorem quis nisl finibus pharetra. Donec dictum lorem vel
-                  odio efficitur blandit. Maecenas hendrerit ante non lobortis
-                  condimentum. Vivamus sodales tellus id tincidunt lacinia.
-                </p>
-              </div>
-              <div className={'faq-content'}>
-                <div className={'faq-item'}>
-                  <h3>Question 1</h3>
-                  <p>Réponse à la question 1 avec du contenu détaillé.</p>
-                </div>
-                <div className={'faq-item'}>
-                  <h3>Question 2</h3>
-                  <p>
-                    Réponse à la question 2 avec des détails supplémentaires.
-                  </p>
-                </div>
-                <div className={'faq-item'}>
-                  <h3>Question 3</h3>
-                  <p>Réponse à la question 3 avec encore plus de détails.</p>
-                </div>
-              </div>
-            </div>
-          </div>*/}
         <div className={'faq-container'}>
           <div>
             <h2 className={'faq-title'}>FAQ</h2>
             <div className={'faq-text'}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                sodales maximus risus, quis congue libero convallis vel. Sed ut
-                lorem quis nisl finibus pharetra. Donec dictum lorem vel odio
-                efficitur blandit. Maecenas hendrerit ante non lobortis
-                condimentum. Vivamus sodales tellus id tincidunt lacinia.
+                Questions de survie : tout ce que vous devez savoir pour
+                prospérer dans l'univers impitoyable de Leveling, où chaque
+                mission réussie vous rapproche de la gloire et chaque échec vous
+                pousse vers l'abîme.
               </p>
             </div>
           </div>
           <FAQSection faqItems={faq} />
-          {/*<div className={'faq-list'}>
-            {faq.map((entry, index) => (
-              <div className="faq-item" key={index}>
-                <div className="faq-question">
-                  {entry.question}
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                    >
-                      <rect
-                        x="5.99991"
-                        y="2.00024"
-                        width="4"
-                        height="12"
-                        fill="#F0F5FC"
-                      />
-                      <rect
-                        x="14"
-                        y="6"
-                        width="4"
-                        height="12"
-                        transform="rotate(90 14 6)"
-                        fill="#F0F5FC"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="faq-reponse">{entry.reponse}</div>
-              </div>
-            ))}
-          </div>*/}
         </div>
         <script></script>
       </div>

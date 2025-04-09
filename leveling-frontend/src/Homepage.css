@@ -52,7 +52,7 @@
 
 .download-title {
   color: white;
-  font-size: 90px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
@@ -70,8 +70,13 @@
 
 .ios-android-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 32px;
+}
+
+.scanMe {
+  display: flex;
+  justify-content: center;
 }
 
 .ios, .android {
@@ -371,6 +376,14 @@ height: 8px;  Hauteur de la scrollbar
   font-size: 1.2rem;
   color: #62dafb;
 }
+.score-container {
+  display: flex;
+  justify-content: center;
+}
+
+.diamond-score {
+  position: relative;
+}
 
 .faq-container{
   margin-top: 10vh;
@@ -392,24 +405,58 @@ height: 8px;  Hauteur de la scrollbar
 .faq-text {
   display: flex;
   justify-content: center;
-  max-width: 80%;
-  margin: 0 10% 0 10%;
+  max-width: 60%;
+  margin: auto;
 }
 
+/*.faq-list {
+  width: 90%;
+  padding: 20px 30px;
+  margin: 10% auto;
+  border: solid 2px red;
+  border-radius: 20px;
+}*/
+
 .faq-list {
-  width: 100%;
-  padding: 20px 10% 20px 10%;
+  position: relative; /* Ajout pour le positionnement absolu du pseudo-élément */
+  width: 90%;
+  padding: 20px 30px;
+  margin: auto;
+  border-radius: 20px;
+  background: transparent; /* Pour s'assurer que le fond est transparent */
+  z-index: 1; /* Pour gérer les couches d'empilement */
+}
+
+/* Application de l'effet de bordure en dégradé sur .faq-list */
+.faq-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px; /* Épaisseur de la bordure */
+  background: linear-gradient(180deg, #363BFC, #05091C);
+  -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .faq-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px 0 10px 0;
+
 }
 .faq-question {
   font-weight: bold;
   cursor: pointer;
   padding: 10px;
-  background-color: #1a224a;
+  background-color: #05091C80;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -425,7 +472,7 @@ height: 8px;  Hauteur de la scrollbar
 .faq-reponse {
   display: none;
   padding: 10px;
-  background-color: #1e2b5a;
+  background-color: #05091C80;
   margin-top: 5px;
   border-radius: 5px;
   transition: all 0.3s ease;
@@ -461,7 +508,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .download-title {
-    font-size: 60px;
+    font-size: 30px;
   }
 
   .feedback-title {
@@ -471,7 +518,8 @@ height: 8px;  Hauteur de la scrollbar
   .feedback-text,
   .faq-text {
     width: 90%;
-    margin: 0 5% 0 5%;
+    padding: 0 2.5% 0 2.5%;
+
   }
 
   .faq-title {
@@ -505,7 +553,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .download-title {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .ios-android-container {
@@ -560,7 +608,7 @@ height: 8px;  Hauteur de la scrollbar
   }
 
   .faq-list {
-    width: 100%;
+    width: 90%;
     padding: 10px 5% 10px 5%;
   }
 }
