@@ -4,6 +4,7 @@ import qrLogo from './assets/qr-code.svg';
 import ctaButton from './assets/button cta.svg';
 import ctaButton2 from './assets/button cta2.svg';
 import iphoneImg from './assets/iphoneDl.png';
+import defaultImage from './assets/Default.png';
 import { useEffect, useRef, useState } from 'react';
 import Header from './Header.jsx';
 import './Homepage.css';
@@ -12,19 +13,155 @@ import apiUrl from './apiUrl.tsx';
 import PropTypes from 'prop-types';
 import { Link as ScrollLink } from 'react-scroll';
 
+const feedback = [
+  {
+    id: 1,
+    description:
+      "Cette appli a complètement transformé ma routine sportive ! Les missions surprises me poussent à me bouger même quand je n'en ai pas envie. J'adore la pression du compte à rebours, ça me motive vraiment !",
+    name: 'Sophie',
+    stars: 1,
+  },
+  {
+    id: 2,
+    description:
+      "Le concept est génial et addictif. J'ai perdu 5kg en 2 mois sans m'en rendre compte. Seul bémol : parfois les missions arrivent à des moments vraiment pas pratiques malgré mes réglages.",
+    name: 'Thomas',
+    stars: 2,
+  },
+  {
+    id: 3,
+    description:
+      "L'idée est bonne mais le risque de suppression de compte est un peu stressant. Ça me met trop la pression quand je suis déjà fatigué après le boulot.",
+    name: 'Julie',
+    stars: 3,
+  },
+  {
+    id: 4,
+    description:
+      "Version premium vraiment worth it ! Les exercices personnalisés sont super efficaces et j'adore pouvoir customiser mon avatar avec les objets exclusifs.",
+    name: 'Maxime',
+    stars: 4,
+  },
+  {
+    id: 5,
+    description:
+      'La compétition avec mes amis me donne une motivation supplémentaire ! Par contre, le système de niveaux pourrait être plus équilibré, on stagne vite après le niveau 15.',
+    name: 'Camille',
+    stars: 5,
+  },
+  {
+    id: 6,
+    description:
+      "J'ai découvert que l'option premium résout tous les problèmes de flexibilité ! Maintenant je peux adapter mes missions à mon emploi du temps et l'appli reste fun sans le stress.",
+    name: 'Nicolas',
+    stars: 6,
+  },
+  {
+    id: 7,
+    description:
+      "INCROYABLE !!! J'ai jamais réussi à tenir une routine sport avant cette appli. Le fait que mon perso puisse mourir me fait bouger mon corps même quand j'ai la flemme. Meilleure invention ever !",
+    name: 'Léa',
+    stars: 7,
+  },
+  {
+    id: 8,
+    description:
+      'Application géniale et vraiment addictive dans le bon sens ! Je me surprends à faire des exercices à des moments inattendus et mes amis ont remarqué ma transformation physique. Recommandé à 100% !',
+    name: 'Alexandre',
+    stars: 8,
+  },
+  {
+    id: 9,
+    description:
+      "La progression de la difficulté est bien pensée. Je ne m'ennuie jamais et je vois de vrais résultats physiques. Les défis entre amis sont hyper motivants !",
+    name: 'Emma',
+    stars: 9,
+  },
+  {
+    id: 10,
+    description:
+      'Concept brillant et la dernière mise à jour a résolu tous les bugs ! La validation des missions est maintenant fluide et les nouvelles fonctionnalités de suivi de progression sont top.',
+    name: 'Hugo',
+    stars: 10,
+  },
+  {
+    id: 11,
+    description:
+      "L'option 'pause maladie' du compte premium m'a sauvé quand j'étais cloué au lit! Merci pour cette fonctionnalité qui respecte nos contraintes tout en gardant la motivation intacte.",
+    name: 'Marie',
+    stars: 11,
+  },
+  {
+    id: 12,
+    description:
+      "Le meilleur coach sportif que j'ai jamais eu ! L'effet surprise des missions et la peur de perdre mon perso me font bouger comme jamais. J'ai même converti toute ma famille !",
+    name: 'David',
+    stars: 12,
+  },
+  {
+    id: 13,
+    description:
+      "Excellente application qui m'a permis de me remettre sérieusement au sport. Le système de récompenses est addictif et j'adore collectionner les badges de progression !",
+    name: 'Laura',
+    stars: 13,
+  },
+  {
+    id: 14,
+    description:
+      "Les missions sont bien équilibrées et la progression est parfaite. Le système de pénalité est juste ce qu'il faut pour me motiver sans me décourager. Meilleure appli fitness que j'ai essayée !",
+    name: 'Antoine',
+    stars: 14,
+  },
+  {
+    id: 15,
+    description:
+      "6 mois d'utilisation et je suis devenu accro au sport grâce à cette appli ! La peur de perdre mon perso me fait lever même les jours où je n'ai pas envie. Les défis entre amis sont hilarants !",
+    name: 'Alex le bg',
+    stars: 15,
+  },
+];
+
 // eslint-disable-next-line react/prop-types
 const FeedbackList = ({ feedback, orientation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [arrayFeedBackIndex, setArrayFeedBackIndex] = useState(0);
   const containerRef = useRef(null);
+  const [tour, setTour] = useState(0);
+  const [displayed, setDisplayed] = useState([]);
+  useEffect(() => {
+    setArrayFeedBackIndex(arrayFeedBackIndex + 1);
+    if (arrayFeedBackIndex >= feedback.length - 5) {
+      setArrayFeedBackIndex(0);
+      setTour(tour + 1);
+    }
+    /*    console.log(arrayFeedBackIndex, currentIndex, 'ALEXANDRE');*/
+  }, [currentIndex]);
+  const loadMoreItems = () => {
+    let newDisp = [
+      ...feedback.slice(
+        arrayFeedBackIndex,
+        arrayFeedBackIndex + (5 % feedback.length)
+      ),
+    ];
+    newDisp.map((x) => {
+      x.tour = tour;
+    });
+
+    setDisplayed(newDisp);
+  };
+  useEffect(() => {
+    loadMoreItems();
+  }, []);
 
   useEffect(() => {
     if (containerRef.current) {
       const interval = setInterval(() => {
         // eslint-disable-next-line react/prop-types
-        const totalItems = feedback.length;
+        const totalItems = displayed.length;
         if (totalItems === 0) return;
 
-        const newIndex = (currentIndex + 1) % totalItems;
+        /* const newIndex = (currentIndex + 1) % totalItems;*/
+        const newIndex = currentIndex + 1;
         setCurrentIndex(newIndex);
 
         // Détermine le sens de défilement selon l'orientation
@@ -33,15 +170,11 @@ const FeedbackList = ({ feedback, orientation }) => {
         // Récupère la position dcroll appropriée
         let scrollPosition;
         if (isHorizontal) {
-          scrollPosition = containerRef.current.children[newIndex].offsetLeft;
-        } else {
-          scrollPosition = containerRef.current.children[newIndex].offsetTop;
+          scrollPosition = containerRef.current.children[1].offsetLeft;
         }
 
         // Anime le scroll de manière fluide
-        let start = isHorizontal
-          ? containerRef.current.scrollLeft
-          : containerRef.current.scrollTop;
+        let start = containerRef.current.scrollLeft;
 
         const end = scrollPosition;
         const duration = 1000; // Durée de l'animation (1000ms = 1s)
@@ -57,27 +190,27 @@ const FeedbackList = ({ feedback, orientation }) => {
 
           if (isHorizontal) {
             containerRef.current.scrollLeft = start + (end - start) * fraction;
-          } else {
-            containerRef.current.scrollTop = start + (end - start) * fraction;
           }
 
           if (elapsed < duration) {
             requestAnimationFrame(animate);
           }
         }
-
+        loadMoreItems();
+        console.log(displayed, arrayFeedBackIndex);
         requestAnimationFrame(animate);
-      }, 4000);
+      }, 3000);
 
       return () => clearInterval(interval);
     }
-  }, [currentIndex, feedback, orientation]);
+  }, [currentIndex, displayed, orientation]);
 
   return (
     <div ref={containerRef} className="feedback-list">
       {/* eslint-disable-next-line react/prop-types */}
-      {feedback.map((item) => (
-        <div key={item.id} className="feedback feature-card">
+      {displayed.map((item, i) => (
+        <div key={item.id + '_' + item.tour} className="feedback feature-card">
+          <h1>{item.id + '-' + item.tour}</h1>
           <p>{item.description}</p>
           <p>{item.name}</p>
           <p>{item.stars} / 5</p>
@@ -102,114 +235,6 @@ function HomePage() {
 
   // Déclaration de realDataRank comme state pour pouvoir mettre à jour l'UI
   const [realDataRank, setRealDataRank] = useState([]);
-
-  const feedback = [
-    {
-      id: 1,
-      description:
-        "Cette appli a complètement transformé ma routine sportive ! Les missions surprises me poussent à me bouger même quand je n'en ai pas envie. J'adore la pression du compte à rebours, ça me motive vraiment !",
-      name: 'Sophie',
-      stars: 5,
-    },
-    {
-      id: 2,
-      description:
-        "Le concept est génial et addictif. J'ai perdu 5kg en 2 mois sans m'en rendre compte. Seul bémol : parfois les missions arrivent à des moments vraiment pas pratiques malgré mes réglages.",
-      name: 'Thomas',
-      stars: 4,
-    },
-    {
-      id: 3,
-      description:
-        "L'idée est bonne mais le risque de suppression de compte est un peu stressant. Ça me met trop la pression quand je suis déjà fatigué après le boulot.",
-      name: 'Julie',
-      stars: 3,
-    },
-    {
-      id: 4,
-      description:
-        "Version premium vraiment worth it ! Les exercices personnalisés sont super efficaces et j'adore pouvoir customiser mon avatar avec les objets exclusifs.",
-      name: 'Maxime',
-      stars: 5,
-    },
-    {
-      id: 5,
-      description:
-        'La compétition avec mes amis me donne une motivation supplémentaire ! Par contre, le système de niveaux pourrait être plus équilibré, on stagne vite après le niveau 15.',
-      name: 'Camille',
-      stars: 4,
-    },
-    {
-      id: 6,
-      description:
-        "J'ai découvert que l'option premium résout tous les problèmes de flexibilité ! Maintenant je peux adapter mes missions à mon emploi du temps et l'appli reste fun sans le stress.",
-      name: 'Nicolas',
-      stars: 4,
-    },
-    {
-      id: 7,
-      description:
-        "INCROYABLE !!! J'ai jamais réussi à tenir une routine sport avant cette appli. Le fait que mon perso puisse mourir me fait bouger mon corps même quand j'ai la flemme. Meilleure invention ever !",
-      name: 'Léa',
-      stars: 5,
-    },
-    {
-      id: 8,
-      description:
-        'Application géniale et vraiment addictive dans le bon sens ! Je me surprends à faire des exercices à des moments inattendus et mes amis ont remarqué ma transformation physique. Recommandé à 100% !',
-      name: 'Alexandre',
-      stars: 5,
-    },
-    {
-      id: 9,
-      description:
-        "La progression de la difficulté est bien pensée. Je ne m'ennuie jamais et je vois de vrais résultats physiques. Les défis entre amis sont hyper motivants !",
-      name: 'Emma',
-      stars: 5,
-    },
-    {
-      id: 10,
-      description:
-        'Concept brillant et la dernière mise à jour a résolu tous les bugs ! La validation des missions est maintenant fluide et les nouvelles fonctionnalités de suivi de progression sont top.',
-      name: 'Hugo',
-      stars: 4,
-    },
-    {
-      id: 11,
-      description:
-        "L'option 'pause maladie' du compte premium m'a sauvé quand j'étais cloué au lit! Merci pour cette fonctionnalité qui respecte nos contraintes tout en gardant la motivation intacte.",
-      name: 'Marie',
-      stars: 4,
-    },
-    {
-      id: 12,
-      description:
-        "Le meilleur coach sportif que j'ai jamais eu ! L'effet surprise des missions et la peur de perdre mon perso me font bouger comme jamais. J'ai même converti toute ma famille !",
-      name: 'David',
-      stars: 5,
-    },
-    {
-      id: 13,
-      description:
-        "Excellente application qui m'a permis de me remettre sérieusement au sport. Le système de récompenses est addictif et j'adore collectionner les badges de progression !",
-      name: 'Laura',
-      stars: 4,
-    },
-    {
-      id: 14,
-      description:
-        "Les missions sont bien équilibrées et la progression est parfaite. Le système de pénalité est juste ce qu'il faut pour me motiver sans me décourager. Meilleure appli fitness que j'ai essayée !",
-      name: 'Antoine',
-      stars: 5,
-    },
-    {
-      id: 15,
-      description:
-        "6 mois d'utilisation et je suis devenu accro au sport grâce à cette appli ! La peur de perdre mon perso me fait lever même les jours où je n'ai pas envie. Les défis entre amis sont hilarants !",
-      name: 'Sarah',
-      stars: 5,
-    },
-  ];
 
   /*  const dataRank = [
     { rank: 1, name: 'Frédéric', score: 156, avatar: 'avatar1.jpg' },
@@ -304,6 +329,8 @@ function HomePage() {
         score: item.score,
         avatar: item.avatar,
       }));
+
+      console.log('RankData :' + rankData.at(1).avatar);
 
       // Mise à jour du state
       setRealDataRank(rankedData);
@@ -466,7 +493,7 @@ function HomePage() {
                 <div className="leaderboard-item" key={index}>
                   <div className="rank">#{entry.rank}</div>
                   <img
-                    src={iosLogo}
+                    src={entry.avatar || defaultImage}
                     width="50"
                     alt={entry.name}
                     className="avatar"
