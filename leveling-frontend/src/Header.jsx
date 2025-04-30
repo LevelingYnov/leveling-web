@@ -109,9 +109,9 @@ function Header() {
               to="download-section"
               smooth={true}
               duration={1000} // Durée en millisecondes
-              className="download-button"
+              className="download-button-header"
             >
-              <span className="download-button-text">
+              <span className="download-button-text-header">
                 Télécharger l'application
               </span>
               <svg
@@ -165,14 +165,15 @@ function Header() {
               Contact
             </Link>
           </li>
+
           <ScrollLink
             to="download-section"
             smooth={true}
             duration={1000} // Durée en millisecondes
-            className="download-button"
+            className="download-button-header"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span className="download-button-text">
+            <span className="download-button-text-header">
               Télécharger l'application
             </span>
             <svg

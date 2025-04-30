@@ -4,7 +4,7 @@ import qrLogo from './assets/qr-code.svg';
 import ctaButton from './assets/button cta.svg';
 import ctaButton2 from './assets/button cta2.svg';
 import iphoneImg from './assets/iphoneDl.png';
-import defaultImage from './assets/Default.png';
+import defaultImage from './assets/default_avatar.svg';
 import { useEffect, useRef, useState } from 'react';
 import Header from './Header.jsx';
 import './Homepage.css';
@@ -210,7 +210,6 @@ const FeedbackList = ({ feedback, orientation }) => {
       {/* eslint-disable-next-line react/prop-types */}
       {displayed.map((item, i) => (
         <div key={item.id + '_' + item.tour} className="feedback feature-card">
-          <h1>{item.id + '-' + item.tour}</h1>
           <p>{item.description}</p>
           <p>{item.name}</p>
           <p>{item.stars} / 5</p>
@@ -450,6 +449,32 @@ function HomePage() {
               <ScrollLink
                 to="download-section"
                 smooth={true}
+                duration={1000}
+                className="download-button"
+              >
+                <span className="download-button-text">
+                  Télécharger l'application
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="256"
+                  height="38"
+                  viewBox="0 0 256 38"
+                  fill="none"
+                >
+                  <path
+                    d="M20.5 0H255.5L235 38H0L20.5 0Z"
+                    fill="transparent"
+                    stroke="#FFFFFF"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </ScrollLink>
+            </div>
+            {/*<div className={'download-button-iphone'}>
+              <ScrollLink
+                to="download-section"
+                smooth={true}
                 duration={1000} // Durée en millisecondes
                 className="download-button"
               >
@@ -471,7 +496,7 @@ function HomePage() {
                   />
                 </svg>
               </ScrollLink>
-            </div>
+            </div>*/}
           </div>
         </div>
         <div className={'rank-container'}>

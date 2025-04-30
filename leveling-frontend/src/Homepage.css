@@ -293,6 +293,46 @@ height: 8px;  Hauteur de la scrollbar
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
+
+
+
+.download-button-text-header {
+  position: absolute;
+  font-weight: 600;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #05091c;
+  z-index: 2;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.download-button-header {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.download-button-header svg {
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+/* Utiliser un remplissage progressif du SVG plutôt qu'un pseudo-élément */
+.download-button-header svg path {
+  transition: fill 0.4s ease;
+  fill: transparent; /* État initial - transparent */
+}
+
+.download-button-header svg path {
+  fill: white; /* État au hover - rempli en blanc */
+}
+
+.download-button-header:hover .download-button-text-header {
+  color: #000; /* Texte noir sur fond blanc au hover */
+}
+
 .download-button {
   cursor: pointer;
 }
@@ -302,6 +342,48 @@ height: 8px;  Hauteur de la scrollbar
 }
 .download-button-text {
   color: white;
+}
+
+.download-button-iphone {
+  display: flex;
+  justify-content: center;
+}
+
+.download-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.download-button-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.download-button svg {
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+/* Utiliser un remplissage progressif du SVG plutôt qu'un pseudo-élément */
+.download-button svg path {
+  transition: fill 0.4s ease;
+  fill: transparent; /* État initial - transparent */
+}
+
+.download-button:hover svg path {
+  fill: white; /* État au hover - rempli en blanc */
+}
+
+.download-button:hover .download-button-text {
+  color: #000; /* Texte noir sur fond blanc au hover */
 }
 
 #text {
@@ -578,7 +660,7 @@ height: 8px;  Hauteur de la scrollbar
   .ios-android-container {
     display: flex;
     gap: 15px;
-    width: 100%;
+    width: 40%;
   }
 
   .ios,
